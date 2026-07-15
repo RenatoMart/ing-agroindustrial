@@ -30,28 +30,28 @@ export const valores = [
 ];
 
 export const historia = {
-  fundacion: 2000,
-  resena: "Reseña histórica del programa: cuándo y por qué se creó el programa, y cómo ha evolucionado. Reemplaza este texto por la historia de tu programa.",
+  fundacion: 1993,
+  resena: "En la Universidad Nacional de Trujillo, desde el año 1995 empezó a funcionar la Escuela Profesional de Ingeniería Agroindustrial, que pertenece a la Facultad de Ciencias Agropecuarias. En 1968 se crea el Proyecto Especial Chavimochic (PECH), que abarca las provincias de Virú, Trujillo y Ascope. La presencia y desarrollo del Proyecto Chavimochic y el nuevo marco normativo existente ejercen presión para que la formación del Ingeniero Agroindustrial también sea rediseñada, con un Plan Curricular que incorpore estos efectos. El territorio de La Libertad es privilegiado en cuanto a recursos naturales, en el cual encontramos casi todos los pisos altitudinales; por lo tanto, posee ventajas comparativas para desarrollar distintos tipos de cultivos y diferentes variedades forestales, y cuenta además con diversidad de fuentes de agua, importantes recursos turísticos arqueológicos y naturales, zonas de pasturas y ganaderas relevantes y un importante potencial forestal. Luego de 11 años de vigencia del primer currículo de la carrera, el 2013, con RCU N° 0244-2013/UNT se aprobó un plan curricular adaptado a las exigencias del mercado ocupacional del momento, en función al contexto local, regional, nacional e internacional, y en concordancia con los estándares para la acreditación de carreras profesionales de ingeniería de la Comisión Nacional de Evaluación y Acreditación Universitaria (CONEAU); pero, producto de la aprobación de la Nueva Ley Universitaria, Ley 30220, aparecen nuevas exigencias que hacen necesario nuevamente un cambio sustancial a este documento.",
   hitos: [
     {
+      año: 1993,
+      descripcion: "Se crea el Programa de Ingeniería Agroindustrial en la Facultad de Ciencias Agropecuarias de la Universidad Nacional de Trujillo."
+    },
+    {
+      año: 1995,
+      descripcion: "Empieza a funcionar la Escuela Profesional de Ingeniería Agroindustrial."
+    },
+    {
       año: 2000,
-      descripcion: "Descripción del primer hito de la historia del programa."
+      descripcion: "El programa tiene a su primer graduado en julio."
     },
     {
-      año: 2005,
-      descripcion: "Descripción del segundo hito de la historia del programa."
+      año: 2013,
+      descripcion: "Con RCU N° 0244-2013/UNT se aprueba un plan curricular adaptado a las exigencias del mercado ocupacional y a los estándares de acreditación del CONEAU."
     },
     {
-      año: 2010,
-      descripcion: "Descripción del tercer hito de la historia del programa."
-    },
-    {
-      año: 2015,
-      descripcion: "Descripción del cuarto hito de la historia del programa."
-    },
-    {
-      año: 2020,
-      descripcion: "Descripción del quinto hito de la historia del programa."
+      año: 2018,
+      descripcion: "Entra en vigencia el Plan de Estudios 2018: 59 cursos obligatorios, 4 electivos y un mínimo de 208 créditos para graduarse."
     }
   ]
 };

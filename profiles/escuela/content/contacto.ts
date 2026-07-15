@@ -1,7 +1,11 @@
 export const informacionContacto = {
-  direccion: "Dirección del programa: pabellón, facultad y campus universitario.",
+  direccion: "Av. Juan Pablo II s/n — Ciudad Universitaria, Trujillo, La Libertad, Perú",
+  // PENDIENTE: falta un teléfono institucional del programa (el documento solo
+  // trae celulares personales de las autoridades, que no se publican aquí).
   telefonos: ["(00) 000-0000 Anexo: 000", "+51 000 000 000"],
+  // PENDIENTE: falta un correo institucional del programa (no del director).
   correo: "contacto@universidad.edu.pe",
+  // PENDIENTE: falta el horario de atención.
   horarioAtencion: "Lunes a Viernes: 00:00 a 00:00 hrs",
   // Mapa de ubicación: pega aquí la URL "embed" de Google Maps de tu programa
   // (Compartir → Insertar un mapa → copia el atributo src del iframe).

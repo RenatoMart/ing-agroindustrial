@@ -42,5 +42,5 @@ export const infoUtilAdmision: InfoUtilItem[] = [
 // Botón inferior: portal oficial de admisión de la universidad.
 export const portalAdmision = {
   label: 'Portal de Admisión',
-  url: '#',
+  url: 'https://www.admisionunt.info/carreraDetalle/24',
 };

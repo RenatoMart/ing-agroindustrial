@@ -193,11 +193,14 @@ export const ADMISION_GROUPS: NavGroup[] = [
     ],
   },
   {
+    // "Matriculados" y "Graduados" apuntan a la ficha pública del programa, que es
+    // donde la Declaración Pública del programa publica esas cifras.
+    // PENDIENTE: falta la fuente declarada para "Ingresantes" y "Titulados".
     label: 'Estadísticas (últimos 5 años)',
     items: [
       { name: 'Ingresantes', path: '#', external: true },
-      { name: 'Matriculados', path: '#', external: true },
-      { name: 'Graduados', path: '#', external: true },
+      { name: 'Matriculados', path: 'https://www.admisionunt.info/carreraDetalle/24', external: true },
+      { name: 'Graduados', path: 'https://www.admisionunt.info/carreraDetalle/24', external: true },
       { name: 'Titulados', path: '#', external: true },
     ],
   },

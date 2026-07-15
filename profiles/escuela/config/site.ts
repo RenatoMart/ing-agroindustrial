@@ -9,41 +9,43 @@ import type { SiteConfig } from '@/profile-types';
  */
 export const site: SiteConfig = {
   programa: {
-    nombre: 'Programa de Estudios de la Carrera',
-    nombreCorto: 'Programa de Estudios',
+    nombre: 'Programa de Estudios de Ingeniería Agroindustrial',
+    nombreCorto: 'Ingeniería Agroindustrial',
   },
   universidad: {
-    nombre: 'Nombre de la Universidad',
-    siglas: 'SIGLAS',
-    url: '#',
+    nombre: 'Universidad Nacional de Trujillo',
+    siglas: 'UNT',
+    url: 'https://www.unitru.edu.pe',
     // Dominio para acotar el buscador del navbar (site:dominio). Déjalo vacío
     // para una búsqueda general en Google.
-    dominio: '',
+    dominio: 'unitru.edu.pe',
   },
-  facultad: 'Nombre de la Facultad',
+  facultad: 'Facultad de Ciencias Agropecuarias',
 
   // Denominación del tipo de unidad académica. Se usa en subtítulos genéricos.
   denominacion: 'Programa de Estudios',
 
   // Wordmark del navbar: se muestra en dos líneas (línea 1 en azul, línea 2 en dorado).
-  wordmark: { linea1: 'Nombre', linea2: 'Programa' },
+  wordmark: { linea1: 'Ingeniería', linea2: 'Agroindustrial' },
 
   tagline:
-    'Lema o frase que resume el propósito del programa de estudios en una línea. Reemplázalo por el de tu programa.',
+    'Crea y transmite conocimiento científico, tecnológico e innovador con responsabilidad social acorde con las necesidades de la región y del país.',
 
   hero: {
     eyebrow: 'Programa de Estudios de',
-    titulo: { linea1: 'Nombre', linea2: 'Escuela' },
+    titulo: { linea1: 'Ingeniería', linea2: 'Agroindustrial' },
     descripcion:
-      'Descripción breve del programa de estudios para el hero: a quién forma y con qué enfoque. Reemplaza este texto por el de tu programa.',
+      'Formamos profesionales competitivos y éticos, capaces de formular, planificar y gestionar proyectos y empresas para la generación de productos y/o servicios agroindustriales, mediante la enseñanza integral, efectiva, moderna y la investigación científica.',
     ctas: {
       primary: { label: 'Ver Plan de Estudios', to: '/academico/malla-curricular' },
       secondary: { label: 'Perfiles académicos', to: '/academico/perfiles' },
     },
   },
 
-  // Sello de acreditación (badge del hero). Si tu programa no está acreditado,
-  // pon `mostrarSello: false` y ajusta `estado`.
+  // Sello de acreditación (badge del hero).
+  // PENDIENTE: el documento del programa indica que está acreditado y con
+  // reconocimiento internacional, pero NO nombra a la entidad acreditadora.
+  // Reemplazar `entidad` y `texto` cuando se confirme (¿ICACIT, SINEACE?).
   acreditacion: {
     entidad: 'Entidad Acreditadora',
     estado: 'acreditada',
@@ -53,14 +55,15 @@ export const site: SiteConfig = {
 
   // Cifras destacadas de la franja del hero. Reemplaza números y etiquetas.
   cifras: [
-    { numero: '---', etiqueta: 'Primera cifra destacada', sub: 'Descripción breve de la cifra' },
-    { numero: '---+', etiqueta: 'Segunda cifra destacada', sub: 'Descripción breve de la cifra' },
-    { numero: '---%', etiqueta: 'Tercera cifra destacada', sub: 'Descripción breve de la cifra' },
+    { numero: '830', etiqueta: 'Egresados', sub: 'A lo largo de 17 promociones' },
+    { numero: '208', etiqueta: 'Créditos', sub: 'Plan de estudios 2018' },
+    { numero: '1993', etiqueta: 'Año de creación', sub: 'Primer graduado en julio de 2000' },
   ],
 
   decana: {
-    nombre: 'Nombre del Decano(a)',
-    cargo: 'Decano(a) de la Nombre de la Escuela/Carrera Profesional',
+    nombre: 'Dr. Raúl Benito Siche Jara',
+    cargo: 'Decano de la Facultad de Ciencias Agropecuarias',
+    // PENDIENTE: falta el texto real del mensaje de bienvenida del decano.
     mensaje:
       'Mensaje de bienvenida del decano(a). Aquí va un párrafo que recibe a los visitantes y resume el espíritu del programa. Reemplazar por texto real del decano(a) de tu programa.',
     // ID del video de YouTube para el mensaje de bienvenida. Déjalo vacío hasta

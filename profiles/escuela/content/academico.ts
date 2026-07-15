@@ -1,31 +1,45 @@
-export const gradoAcademico = "Grado de Bachiller del Programa de Estudios";
-export const tituloProfesional = "Título Profesional del Programa de Estudios";
+export const gradoAcademico = "Bachiller en Ingeniería Agroindustrial";
+export const tituloProfesional = "Ingeniero Agroindustrial";
 
+// El perfil del ingresante al Programa de Ingeniería Agroindustrial comprende el
+// perfil general del ingresante a la Universidad Nacional de Trujillo, más la
+// competencia propia del programa.
 export const perfilIngresante = [
-  { area: "Competencia de ingreso 1", descripcion: "Descripción breve de la primera competencia esperada en el postulante." },
-  { area: "Competencia de ingreso 2", descripcion: "Descripción breve de la segunda competencia esperada en el postulante." },
-  { area: "Competencia de ingreso 3", descripcion: "Descripción breve de la tercera competencia esperada en el postulante." },
-  { area: "Competencia de ingreso 4", descripcion: "Descripción breve de la cuarta competencia esperada en el postulante." },
-  { area: "Competencia de ingreso 5", descripcion: "Descripción breve de la quinta competencia esperada en el postulante." },
-  { area: "Competencia de ingreso 6", descripcion: "Descripción breve de la sexta competencia esperada en el postulante." }
+  {
+    area: "Competencias instrumentales",
+    descripcion: "Formación básica en las tecnologías de la información y la comunicación (TIC). Se comunica oralmente, lee y escribe diversos tipos de textos. Tiene un acervo cultural y científico básico que le permite comprender la realidad. Comprende, analiza y utiliza la lógica y las matemáticas de modo pertinente y creativo para resolver problemas del contexto real y de la vida académica."
+  },
+  {
+    area: "Competencias interpersonales",
+    descripcion: "Muestra una actitud de respeto a las normas de convivencia y del medioambiente. Se desenvuelve demostrando equilibrio emocional y salud física y mental."
+  },
+  {
+    area: "Competencias sistémicas",
+    descripcion: "Organiza su aprendizaje y trabaja en equipo. Aprecia las manifestaciones artístico-culturales. Convive y participa en forma democrática y construye interpretaciones históricas. Identifica proyectos de emprendedurismo económico social."
+  },
+  {
+    area: "Competencia del programa",
+    descripcion: "Demuestra disposición e interés para el estudio de temas sociales, culturales, productivos y ecológicos relevantes y de la Ingeniería Agroindustrial."
+  }
 ];
 
+// Competencias específicas del egresado (UC1–UC4).
 export const perfilEgresado = [
   {
-    area: "COMPETENCIA 1",
-    descripcion: "descripción de la primera competencia del egresado: qué es capaz de hacer al terminar la carrera."
+    area: "UC1 · Gestión de procesos productivos",
+    descripcion: "Gestiona procesos productivos, optimiza y toma decisiones respecto de los recursos, procesos, maquinaria y equipo con la finalidad de solucionar problemas técnico-productivos en la generación de productos y/o servicios en la pequeña, mediana y gran empresa agroindustrial, en un contexto de productividad y competitividad, en el marco del desarrollo sostenible y la responsabilidad social."
   },
   {
-    area: "COMPETENCIA 2",
-    descripcion: "descripción de la segunda competencia del egresado: qué es capaz de hacer al terminar la carrera."
+    area: "UC2 · Proyectos agroindustriales",
+    descripcion: "Realiza la formulación, implementación, ejecución, seguimiento y evaluación de proyectos inherentes a la actividad agroindustrial; identificando las oportunidades de negocio para la generación, producción, transformación y/o comercialización de bienes y/o servicios; empleando instrumentos y herramientas técnicas, económicas y financieras apropiadas que permitan tomar decisiones de viabilidad y factibilidad técnica y económica, en el marco del cumplimiento de normas y procedimientos establecidos."
   },
   {
-    area: "COMPETENCIA 3",
-    descripcion: "descripción de la tercera competencia del egresado: qué es capaz de hacer al terminar la carrera."
+    area: "UC3 · Sistemas de gestión",
+    descripcion: "Planifica, implementa y evalúa sistemas de gestión en empresas e instituciones relacionadas al ámbito agroindustrial, basado en la excelencia y la mejora continua."
   },
   {
-    area: "COMPETENCIA 4",
-    descripcion: "descripción de la cuarta competencia del egresado: qué es capaz de hacer al terminar la carrera."
+    area: "UC4 · Investigación e innovación",
+    descripcion: "Desarrolla e informa investigación básica y aplicada para el diseño de productos, envases y procesos agroindustriales innovadores, así como el mejoramiento de los ya existentes; en función de la problemática agroindustrial, su contexto, prospectiva, desarrollo sostenible y responsabilidad social."
   }
 ];
 

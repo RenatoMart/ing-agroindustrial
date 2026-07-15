@@ -20,8 +20,8 @@ export const branding: BrandingConfig = {
   },
   heroImages: [hero1, hero2, hero3],
   alt: {
-    universidad: 'Nombre de la Universidad',
-    escuela: 'Nombre del Programa de Estudios',
+    universidad: 'Universidad Nacional de Trujillo',
+    escuela: 'Programa de Estudios de Ingeniería Agroindustrial',
     bolsaTrabajo: 'Bolsa de trabajo',
   },
 };

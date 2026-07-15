@@ -1,8 +1,8 @@
 import type { SeoConfig } from '@/profile-types';
 
 export const seo: SeoConfig = {
-  title: 'Nombre del Programa de Estudios de la UNT',
+  title: 'Ingeniería Agroindustrial | Universidad Nacional de Trujillo',
   description:
-    'Descripción del programa de estudios para buscadores (meta description). Resume en una o dos frases qué es el programa y a quién forma.',
+    'Programa de Estudios de Ingeniería Agroindustrial de la Facultad de Ciencias Agropecuarias de la Universidad Nacional de Trujillo. Formamos profesionales competitivos y éticos para la generación de productos y servicios agroindustriales.',
   lang: 'es',
 };
