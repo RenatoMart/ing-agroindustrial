@@ -1,9 +1,11 @@
+import fotoNinaquispe from '../assets/personas/ninaquispe-zare.webp';
+
 export const director = {
   nombre: "Dr. Viviano Paulino Ninaquispe Zare",
   cargo: "Director de la Escuela Profesional de Ingeniería Agroindustrial",
   correo: "vninaquispe@unitru.edu.pe",
   bio: "Doctor en Ciencias e Ingeniería por la Universidad Nacional de Trujillo, Magíster en Gerencia de Industrias Agropecuarias y Pesqueras e Ingeniero Agroindustrial por la Universidad Nacional del Santa. Docente principal a dedicación exclusiva del Departamento Académico de Ciencias Agroindustriales.",
-  foto: null // PENDIENTE: falta la fotografía del director.
+  foto: fotoNinaquispe // Foto oficial (carpeta compartida assets/personas/).
 };
 
 // PENDIENTE: no se ha proporcionado la relación de coordinadores del programa.

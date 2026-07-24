@@ -1,6 +1,6 @@
-export const mision = "Misión del programa: el propósito formativo del programa, qué profesionales forma y con qué fin. Reemplaza este texto por la misión de tu programa.";
+export const mision = "Formamos personas, profesionales e investigadores, íntegros, críticos, éticos e innovadores, orientados a la investigación, con sólidos conocimientos científicos, tecnológicos, humanísticos y artísticos, comprometidos con el desarrollo sostenible de la Región La Libertad, del país y con alcance global.";
 
-export const vision = "Visión del programa: hacia dónde se proyecta el programa a futuro y por qué busca ser reconocido. Reemplaza este texto por la visión de tu programa.";
+export const vision = "Al año 2030, seremos reconocidos a nivel internacional como una institución transformadora e inclusiva en el ámbito de la educación superior, con liderazgo sostenible, y firmemente comprometida con la excelencia académica, la investigación científica, responsabilidad social y ambiental.";
 
 export const valores = [
   {

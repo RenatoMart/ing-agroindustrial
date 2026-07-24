@@ -5,7 +5,7 @@ con el formato en que debe entregarse y su estado actual.
 
 - **Escuela activa:** Ingeniería Agroindustrial — Facultad de Ciencias Agropecuarias, UNT
 - **Perfil que se edita:** `profiles/escuela/` (**nunca** `src/`)
-- **Última actualización:** 14-07-2026
+- **Última actualización:** 23-07-2026
 
 ## Cómo leer el estado
 
@@ -19,6 +19,25 @@ con el formato en que debe entregarse y su estado actual.
 **Regla de trabajo:** si un dato no está confirmado por fuente oficial, se deja en ⬜ y **no** se
 rellena con texto aproximado. Ver `profiles/README.md`.
 
+## Estado de Drive (23-07-2026)
+
+Conector **reconectado**. Estructura mapeada:
+
+- **Programa de Estudios – Ing. Agroindustrial** → `DOCENTES` (9 fotos, ✅ descargadas y cableadas),
+  `FOTO GENERAL` (1), `ESTUDIANTES` (3).
+- **PAGINA WEB** → `CV DOCENTES` (ignorado), `GRADOS ACADÉMICOS` (✅ trámites cargados), `LABORATORIOS`
+  (vacía), `LÍNEAS DE INVESTIGACIÓN` (subcarpeta vacía), `MALLA CURRICULAR` (✅ ya cargada),
+  `ORGANIGRAMA` (diferido por el usuario), `SILABOS`, `SINEACE` (diferido por el usuario).
+
+Nota técnica: la búsqueda del conector no indexa el contenido recién compartido; se enumeró vía
+`embeddedfolderview` y se descargó con los IDs de archivo directos.
+
+## Comités como cards — HECHO ✅
+
+Editar `src/` fue **aprobado por el usuario** para esta feature. Implementado en
+`src/pages/organizacion/Comites.tsx` + `profiles/escuela/content/comites.ts`. Ver sección Organización.
+**Órganos de Gobierno** sigue pendiente (faltan los nombres de los integrantes).
+
 ## Fuentes ya procesadas
 
 | Fuente | Qué aportó |
@@ -26,7 +45,10 @@ rellena con texto aproximado. Ver `profiles/README.md`.
 | `CONTENIDO MÍNIMO DE LA PÁGINA WEB AGROINDUSTRIAL.docx` | Historia, perfiles de ingreso/egreso, cifras, autoridades, descripción de la carrera |
 | `Hoja 1.html` (planilla de docentes) | Nombres de los 16 docentes + enlaces a sus hojas de vida |
 | Escalafón UNT (SGA, hojas de vida públicas) | Grado, estudios y condición (nombrado/contratado) de los 16 docentes |
-| `admisionunt.info/docs/ingenieriaagroindustrial.pdf` | Malla curricular oficial (**leída pero no cargada**, ver sección Académico) |
+| `MALLA CURRICULAR.xlsx` (Drive) | Malla oficial con códigos, tipos, horas y prerrequisitos (**cargada** ✅) |
+| `R.D. N° 503-2026-FAC.CC.AGROP.` | Integrantes de 3 comités (Egresado, Ciencia y Tecnología, Tutoría) |
+| Carpeta DOCENTES (Drive) | 9 fotos oficiales de docentes (**cargadas** ✅) |
+| Carpeta GRADOS ACADÉMICOS (Drive) | Trámites de Bachiller y Título (**cargados** ✅) |
 
 ## Resumen por sección
 
@@ -34,9 +56,9 @@ rellena con texto aproximado. Ver `profiles/README.md`.
 |---|---|---|
 | Configuración global | ⚠️ | Entidad acreditadora, enlaces institucionales |
 | Inicio | ⚠️ | Mensaje del decano, ambientes, noticias, avisos |
-| Nosotros | ⚠️ | Misión, visión, valores |
-| Académico | ⚠️ | **Malla curricular**, objetivos, titulación |
-| Organización | ⚠️ | Fotos, RENACYT, cursos por docente, organigrama |
+| Nosotros | ⚠️ | Valores; confirmar si misión/visión son del programa o de la facultad |
+| Académico | ⚠️ | Sumillas de la malla, objetivos |
+| Organización | ⚠️ | 7 fotos restantes, RENACYT, cursos por docente, organigrama, 2 comités, órganos de gobierno |
 | Investigación | ⬜ | Todo |
 | Admisión | ⚠️ | Modalidades, requisitos, fechas |
 | Contacto | ⚠️ | Teléfono y correo institucional, horario, redes |
@@ -84,8 +106,8 @@ Identidad que se repite en navbar, footer y buscadores.
 | Año de fundación | `content/identidad.ts` → `historia.fundacion` | Número | ✅ | 1993 |
 | Reseña histórica | `content/identidad.ts` → `historia.resena` | 1-2 párrafos | ✅ | Texto del documento |
 | Hitos | `content/identidad.ts` → `historia.hitos` | `{ año, descripcion }` | ✅ | 1993 · 1995 · 2000 · 2013 · 2018 |
-| **Misión** | `content/identidad.ts` → `mision` | 1 párrafo | ⬜ | Vacío en el documento |
-| **Visión** | `content/identidad.ts` → `vision` | 1 párrafo | ⬜ | Vacío en el documento |
+| Misión | `content/identidad.ts` → `mision` | 1 párrafo | ⚠️ | Cargada (texto proporcionado por el usuario). **Parece institucional/de facultad** (menciona "Región La Libertad", alcance global), no específica del programa — confirmar si existe una propia de Agroindustrial |
+| Visión | `content/identidad.ts` → `vision` | 1 párrafo | ⚠️ | Cargada (texto proporcionado por el usuario). Mismo caso: **"Al año 2030... institución..."** suena institucional, no de programa — confirmar |
 | **Valores** | `content/identidad.ts` → `valores` | `{ nombre, descripcion }` × 6 | ⬜ | No se ha proporcionado |
 
 # 4. Académico
@@ -95,46 +117,43 @@ Identidad que se repite en navbar, footer y buscadores.
 | Perfil del ingresante | `content/academico.ts` → `perfilIngresante` | `{ area, descripcion }` | ✅ | 4 bloques de competencias |
 | Perfil del egresado | `content/academico.ts` → `perfilEgresado` | `{ area, descripcion }` | ✅ | UC1–UC4 |
 | Grado y título | `content/academico.ts` → `gradoAcademico`, `tituloProfesional` | Texto | ✅ | Cargado (hoy ninguna página los usa) |
-| **Malla curricular** | `content/malla.ts` → `CURRICULUM_DATA` | `{ id, name, type, credits, hoursT, hoursP, cycle, isElective, description }` | ⬜ | **Contiene la malla de EDUCACIÓN PRIMARIA.** Ver detalle abajo |
-| **Prerrequisitos** | `content/malla.ts` → `PREREQUISITES_EDGES` | `{ id, source, target, style }` | ⬜ | No hay documento de prerrequisitos |
+| Malla curricular | `content/malla.ts` → `CURRICULUM_DATA` | `{ id, name, type, credits, hoursT, hoursP, cycle, isElective, description }` | ✅ | **Plan 2018 real cargado**: 63 cursos (59 obligatorios + 4 electivos), 208 créditos. Falta solo la **sumilla/descripción** de cada curso (ver abajo) |
+| Prerrequisitos | `content/malla.ts` → `PREREQUISITES_EDGES` | `{ id, source, target, style }` | ✅ | 41 prerrequisitos oficiales cargados desde el Excel |
 | **Objetivos educacionales** | — | — | 🚫 | Página "En Construcción" en `src/`. Sin campo en el perfil |
 | **Objetivos académicos** | — | — | 🚫 | Igual que el anterior |
-| **Titulación / trámites** | `content/academico.ts` → `tramites` | `{ id, titulo, descripcion, requisitos[], pdfUrl }` | ⬜ | Faltan requisitos oficiales y los PDF. Los de `docs/` son de Educación Primaria |
+| Titulación / trámites | `content/academico.ts` → `tramites`, `titulacion` | `{ id, titulo, descripcion, requisitos[], pdfUrl }` | ✅ | **Cargado** desde los documentos oficiales de Bachiller y Título (Drive). Bachiller (RCU 274-2022, RCD 0042-2024-SUNEDU) y Título por Tesis / Suficiencia Profesional (Reglamento 007-2022-UNT/URA). `pdfUrl` enlaza a los reglamentos oficiales en Drive |
 | **Movilidad** | `content/academico.ts` → `movilidad` | `{ institucion, tipo, descripcion, modalidad }` | ⬜ | |
 | **Convenios** | `content/investigacion.ts` → `convenios` | `{ institucion, tipo, descripcion, vigencia }` | ⬜ | |
 | Laboratorios | — | — | 🚫 | Página "En Construcción" en `src/` |
 | Responsabilidad social | — | — | 🚫 | Página "En Construcción" en `src/` |
 
-## Detalle: qué falta para cargar la malla
+## Detalle de la malla — cargada ✅
 
-La malla oficial (`admisionunt.info/docs/ingenieriaagroindustrial.pdf`) ya fue leída y **valida**:
-los créditos por ciclo suman **21+21+21+21+20+20+20+22+22+20 = 208**, que coincide con el total
-oficial. Formato de cada curso en el PDF: `Teoría/Práctica/Créditos` (ej. `2/2/3`).
+Cargada desde `MALLA CURRICULAR.xlsx` (fuente con códigos, tipos, horas y prerrequisitos).
+Verificado por script: **63 cursos = 59 obligatorios + 4 electivos, 208 créditos** (coincide con
+la cifra oficial) y **41 aristas de prerrequisito, 0 huérfanas**.
 
-Se tiene | Falta
----|---
-Nombre del curso | **Descripción de cada curso** (≈63 cursos) — no existe en ninguna fuente
-Ciclo (I–X) | **Prerrequisitos** — las flechas del PDF no son legibles con fiabilidad
-Horas de teoría y práctica | **Código de curso** (solo hay 33 códigos, de cursos de otros departamentos)
-Créditos | |
-Tipo por color (generales / específicas / especialidad) | |
+Decisiones de mapeo aplicadas:
 
-Dos problemas adicionales a resolver antes de cargarla:
+- **`id` = código oficial** del curso (p. ej. `2038`). Los electivos usan `EL-1`…`EL-4`.
+- **`type`** por color de la malla oficial: verde→`general`, naranja→`especifico`, azul→`especialidad`.
+- **Prácticas Preprofesionales** (categoría amarilla "Complementaria", que el sistema no tiene) se
+  mapearon a `especialidad`, que es lo más cercano.
+- **Electivos**: como en la malla oficial, se muestran como **un nodo genérico por ciclo**
+  ("Electivo I…IV"). Las opciones reales de cada uno están listadas en su `description`.
+- **`hoursP` = práctica + laboratorio** (P + L del Excel).
 
-1. **La categoría "COMPLEMENTARIA"** (amarillo: las Prácticas Preprofesionales) no existe en el
-   sistema, que solo admite `general`, `especifico` o `especialidad`.
-2. **Las Prácticas Preprofesionales están mal ubicadas en el PDF** (las cajas se superponen). Por
-   aritmética de créditos correspondería: Prácticas I → Ciclo VIII (`0/4/2`), Prácticas II → Ciclo IX
-   (`0/4/2`), Prácticas III → Ciclo X (`0/16/8`). **Requiere confirmación oficial.**
+Único pendiente de la malla:
 
-> Decisión tomada el 14-07-2026: **no se toca la malla** hasta tener esta información.
-> Mientras tanto, la web sigue mostrando cursos de Educación Primaria.
+| Se tiene | Falta |
+|---|---|
+| Nombre, código, ciclo, horas, créditos, tipo y prerrequisitos | **Sumilla/descripción de cada curso** (no consta en la fuente). Por eso el modal de cada curso obligatorio muestra la descripción vacía |
 
 # 5. Organización
 
 | Dato | Dónde se edita | Formato esperado | Estado | Nota / qué falta |
 |---|---|---|---|---|
-| Director de escuela | `content/autoridades.ts` → `director` | `{ nombre, cargo, correo, bio, foto }` | ⚠️ | Cargado. **Falta la foto** |
+| Director de escuela | `content/autoridades.ts` → `director` | `{ nombre, cargo, correo, bio, foto }` | ✅ | Cargado **con foto** (Ninaquispe, carpeta compartida `assets/personas/`). `AutoridadCard` (src) ajustado para mostrar foto |
 | **Coordinadores** | `content/autoridades.ts` → `coordinadores` | `{ nombre, cargo, correo }` | ⬜ | No se ha proporcionado la relación |
 | Docentes: nombre | `content/docentes.ts` → `nombre` | Texto | ✅ | 16 docentes |
 | Docentes: grado | `content/docentes.ts` → `grado` | "Doctor" / "Doctora" / "Magíster" | ✅ | Del escalafón UNT |
@@ -143,12 +162,12 @@ Dos problemas adicionales a resolver antes de cargarla:
 | Docentes: especialidades | `content/docentes.ts` → `especialidades` | Lista de textos | ✅ | Derivadas de sus grados del escalafón |
 | **Docentes: curso principal** | `content/docentes.ts` → `cursoPrincipal` | Texto | ⬜ | **Falta la asignación de cursos por docente.** Hoy va vacío y el frente de la tarjeta no muestra curso |
 | **Docentes: investigador / RENACYT** | `content/docentes.ts` → `investigador`, `categoriaInvestigacion` | `true/false` + "RENACYT · Nivel X" | ⬜ | Falta saber quién es investigador. Mientras todos sean `false`, el filtro "Investigadores" no aparece |
-| **Docentes: fotos** | `content/docentes.ts` → `foto` + `assets/` | Imagen vertical (~3:4), `.webp` o `.jpg` | ⬜ | Sin foto se muestra una silueta |
+| **Docentes: fotos** | `content/docentes.ts` → `foto` + `assets/personas/` | Imagen vertical (~3:4), `.webp` | ⚠️ | **9 de 16 con foto oficial** (descargadas de Drive y verificadas contra la referencia): Ninaquispe, Siche, Zavaleta, Barraza, Sánchez, Linares, Solano, Rojas Naccha, Rojas Padilla. **Faltan 7** (no están en la carpeta DOCENTES): Rodríguez Salinas, Huaccha, Vegas, Salvador, Gómez, Campos, Sisniegas |
 | **Organigrama** | `content/autoridades.ts` → `organigrama` | `{ nombre, cargo, hijos[] }` | ⬜ | **Pendiente: el usuario enviará la imagen.** Hoy tiene la estructura genérica del Estatuto UNT |
 | Mapa de procesos | `assets/organigrama/mapa-procesos.png` | Imagen | ⬜ | Verificar si la actual es de Agroindustrial |
-| **Comités** (5) | — | — | 🚫 | Página "En Construcción" en `src/`. Se tiene el dato: Presidente del Comité de Calidad = Dr. Juan Carlos Solano Gaviño; Tutoría = R.D. 503-2026 |
-| **Órganos de gobierno** | — | — | 🚫 | Página "En Construcción" en `src/` |
-| **Administrativos** | — | — | 🚫 | Página "En Construcción" en `src/`. El documento indica 1 administrativo y 3 ayudantes de laboratorio |
+| **Comités** | `content/comites.ts` + `src/pages/organizacion/Comites.tsx` | Cards de miembros `{ nombre, rol, grado, foto }` | ⚠️ | **HECHO** (4 de 6 comités): Calidad (Solano), Tutoría y Nivelación, Seguimiento al Egresado, Ciencia y Tecnología — con integrantes de la R.D. 503-2026. **Pendientes**: Comité Técnico de Currículo y Comité de Responsabilidad Social (sin datos → siguen "En construcción"). Fotos: docentes con foto se reutilizan; estudiantes con silueta |
+| **Órganos de gobierno** (Consejo de Facultad, Consejeros, Centro Federado) | pendiente `content/` + `src/pages/organizacion/OrganosGobierno.tsx` | Cards de miembros | 🚫 | Editar `src/` aprobado, mismo modelo. **En espera de datos**: faltan los nombres de los integrantes (no están en los documentos) |
+| **Administrativos** | pendiente `content/` + `src/pages/organizacion/…` | Cards de miembros | 🚫 | Editar `src/` aprobado (mismo modelo de cards). **En espera de datos**: el documento indica 1 administrativo y 3 ayudantes de laboratorio, pero **sin nombres** |
 
 # 6. Investigación
 
@@ -204,20 +223,21 @@ Panel lateral flotante + enlaces.
 | `logo-bolsa-trabajo.png` | Hero | ⚠️ | Existe |
 | `libro-reclamaciones.svg` | Hero | ⚠️ | Existe |
 | `hero/hero-1..3` | Fondo del hero | ⚠️ | Existen. **Confirmar que son fotos de Agroindustrial**. Recomendado: `.webp`, horizontal |
-| Fotos de docentes (16) | Tarjetas de plana docente | ⬜ | Vertical ~3:4, `.webp` o `.jpg` |
-| Foto del director | Página Dirección | ⬜ | Vertical ~3:4 |
-| Imágenes de ambientes | Inicio | ⬜ | Horizontal |
+| `personas/*.webp` (fotos de personas) | Docentes · Dirección · Comités | ⚠️ | **9 cargadas** en la carpeta compartida `assets/personas/`. Faltan 7 docentes (ver sección Organización) |
+| Foto del director | Página Dirección | ✅ | Ninaquispe, en `assets/personas/` |
+| Imágenes de ambientes | Inicio | ⬜ | Horizontal. La carpeta LABORATORIOS de Drive está vacía |
 | `organigrama/mapa-procesos.png` | Estructura organizacional | ⚠️ | Confirmar si corresponde a Agroindustrial |
 
-# 10. Lo más urgente
+# 10. Lo más urgente (pendiente)
 
-1. **Malla curricular** — hoy la web publica cursos de Educación Primaria. Se necesita: descripción
-   por curso, prerrequisitos y confirmación de las Prácticas Preprofesionales.
-2. **Entidad acreditadora** — el sello del hero dice "Acreditada por la Entidad".
-3. **Misión y visión** — están vacías en el documento fuente.
-4. **Fotos** (16 docentes + director) y **cursos por docente**.
+1. **Entidad acreditadora** — el sello del hero dice "Acreditada por la Entidad". El programa
+   trabaja hacia la acreditación SINEACE (carpeta SINEACE en Drive, diferida por el usuario).
+2. **Misión y visión** — vacías en el documento fuente.
+3. **Sumillas de la malla** — la malla está cargada; falta la descripción de cada curso.
+4. **7 fotos de docentes restantes** y **cursos por docente**.
 5. **Contacto institucional** — teléfono, correo y horario.
-6. **Organigrama** — pendiente de la imagen.
+6. **Organigrama** y **SINEACE** — diferidos por el usuario (carpetas en Drive).
+7. **Órganos de Gobierno** y 2 comités (Currículo, Responsabilidad Social) — faltan nombres.
 
-> Las filas marcadas 🚫 requieren tocar `src/`, que está fuera del alcance de este trabajo.
-> Si esas secciones deben publicarse, hay que decidirlo con quien mantiene la plantilla.
+> Editar `src/` está aprobado solo para Comités/Órganos de Gobierno. El resto de secciones 🚫
+> siguen "En construcción" en `src/` sin decisión de ampliar el alcance.

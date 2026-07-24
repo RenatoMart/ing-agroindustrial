@@ -8,6 +8,7 @@ interface Autoridad {
   nombre: string;
   bio?: string;
   correo: string;
+  foto?: string | null;
 }
 
 interface AutoridadCardProps {
@@ -19,9 +20,13 @@ export default function AutoridadCard({ autoridad, principal = false }: Autorida
   return (
     <motion.div whileHover={{ y: -5 }} className="h-full">
       <Card className={`h-full p-8 flex flex-col items-center text-center ${principal ? 'border-2 border-primary/50 shadow-lg' : ''}`}>
-        {/* Avatar Placeholder */}
-        <div className={`${principal ? 'w-32 h-32' : 'w-24 h-24'} bg-primary/10 rounded-xl mb-6 flex items-center justify-center text-primary`}>
-          <User className={`${principal ? 'w-16 h-16' : 'w-12 h-12'} opacity-70`} />
+        {/* Avatar: foto si existe, si no la silueta */}
+        <div className={`${principal ? 'w-32 h-32' : 'w-24 h-24'} rounded-xl mb-6 overflow-hidden ${autoridad.foto ? '' : 'bg-primary/10 flex items-center justify-center text-primary'}`}>
+          {autoridad.foto ? (
+            <img src={autoridad.foto} alt={autoridad.nombre} loading="lazy" className="w-full h-full object-cover object-[50%_20%]" />
+          ) : (
+            <User className={`${principal ? 'w-16 h-16' : 'w-12 h-12'} opacity-70`} />
+          )}
         </div>
         
         <span className="text-primary font-bold text-sm tracking-wider uppercase mb-2">{autoridad.cargo}</span>

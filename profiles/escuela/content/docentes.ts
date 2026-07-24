@@ -12,11 +12,25 @@
 //
 // Fuente: Área de Escalafón, Unidad de Recursos Humanos - UNT (hojas de vida públicas del
 // SGA, consultadas el 14-07-2026). `grado`, `especialidades` y `condicion` provienen de ahí.
+// Fotos oficiales del programa (carpeta DOCENTES en Drive).
 //
 // PENDIENTE (no completar sin fuente oficial):
 //   - cursoPrincipal: no hay asignación de cursos por docente. Queda vacío a propósito.
 //   - investigador / categoriaInvestigacion: falta la condición RENACYT de cada docente.
-//   - foto: faltan las fotografías.
+//   - foto: 9 de 16 docentes ya tienen foto oficial; faltan las 7 restantes.
+
+// Fotografías oficiales (profiles/escuela/assets/personas/, carpeta compartida
+// por persona: la misma foto se reutiliza en docentes, autoridades y comités).
+import fotoNinaquispe from '../assets/personas/ninaquispe-zare.webp';
+import fotoSiche from '../assets/personas/siche-jara.webp';
+import fotoZavaleta from '../assets/personas/zavaleta-guzman.webp';
+import fotoBarraza from '../assets/personas/barraza-jauregui.webp';
+import fotoSanchez from '../assets/personas/sanchez-gonzalez.webp';
+import fotoLinares from '../assets/personas/linares-lujan.webp';
+import fotoSolano from '../assets/personas/solano-gavino.webp';
+import fotoRojasNaccha from '../assets/personas/rojas-naccha.webp';
+import fotoRojasPadilla from '../assets/personas/rojas-padilla.webp';
+
 export const docentes = [
   {
     nombre: "Raúl Benito Siche Jara",
@@ -28,7 +42,8 @@ export const docentes = [
       "Maestría en Economía, mención Gestión Empresarial — UNT",
       "Ingeniero Agroindustrial — Universidad Nacional del Santa"
     ],
-    foto: null,
+    foto: fotoSiche,
+    fotoPosicion: "50% 40%",
     investigador: false,
     categoriaInvestigacion: null,
     condicion: "Nombrado"
@@ -43,7 +58,8 @@ export const docentes = [
       "Maestría en Ciencias, mención Microbiología Industrial y Biotecnología — UNT",
       "Ingeniera en Industrias Alimentarias — Universidad Nacional Agraria"
     ],
-    foto: null,
+    foto: fotoRojasPadilla,
+    fotoPosicion: "50% 30%",
     investigador: false,
     categoriaInvestigacion: null,
     condicion: "Nombrado"
@@ -58,7 +74,8 @@ export const docentes = [
       "Maestría en Ciencias, mención Biotecnología y Bioingeniería — UNT",
       "Ingeniero Agroindustrial — UNT"
     ],
-    foto: null,
+    foto: fotoLinares,
+    fotoPosicion: "50% 30%",
     investigador: false,
     categoriaInvestigacion: null,
     condicion: "Nombrado"
@@ -73,7 +90,8 @@ export const docentes = [
       "Maestría en Gerencia de Industrias Agropecuarias y Pesqueras — Universidad Nacional del Santa",
       "Ingeniero Agroindustrial — Universidad Nacional del Santa"
     ],
-    foto: null,
+    foto: fotoNinaquispe,
+    fotoPosicion: "50% 40%",
     investigador: false,
     categoriaInvestigacion: null,
     condicion: "Nombrado"
@@ -87,7 +105,8 @@ export const docentes = [
       "Maestría en Ciencias, mención Tecnología de Alimentos — UNT",
       "Ingeniero en Industrias Alimentarias — Universidad Nacional Agraria La Molina"
     ],
-    foto: null,
+    foto: fotoRojasNaccha,
+    fotoPosicion: "50% 40%",
     investigador: false,
     categoriaInvestigacion: null,
     condicion: "Nombrado"
@@ -102,7 +121,8 @@ export const docentes = [
       "Maestría en Ciencias, mención Tecnología de Alimentos — UNT",
       "Ingeniera en Industrias Alimentarias — Universidad Nacional Agraria La Molina"
     ],
-    foto: null,
+    foto: fotoBarraza,
+    fotoPosicion: "50% 40%",
     investigador: false,
     categoriaInvestigacion: null,
     condicion: "Nombrado"
@@ -117,7 +137,7 @@ export const docentes = [
       "Maestría en Evaluación de la Calidad y Procesos de Certificación en Educación Superior — Universidad Internacional de La Rioja",
       "Ingeniero Agroindustrial — UNT"
     ],
-    foto: null,
+    foto: fotoSanchez,
     investigador: false,
     categoriaInvestigacion: null,
     condicion: "Nombrado"
@@ -131,7 +151,7 @@ export const docentes = [
       "Maestría en Administración — Universidad ESAN",
       "Ingeniera Agroindustrial — UNT"
     ],
-    foto: null,
+    foto: fotoZavaleta,
     investigador: false,
     categoriaInvestigacion: null,
     condicion: "Nombrado"
@@ -147,7 +167,7 @@ export const docentes = [
       "Especialización en Agronegocios y Alimentos — Universidad de Buenos Aires",
       "Ingeniero Agroindustrial — UNT"
     ],
-    foto: null,
+    foto: fotoSolano,
     investigador: false,
     categoriaInvestigacion: null,
     condicion: "Nombrado"

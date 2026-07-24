@@ -14,6 +14,8 @@ interface Docente {
   nombre: string;
   cursoPrincipal: string;
   foto?: string | null;
+  /** Encuadre de la foto dentro del marco, p. ej. '50% 60%' (por defecto centrado). */
+  fotoPosicion?: string;
   especialidades?: string[];
   investigador?: boolean;
   categoriaInvestigacion?: string | null;
@@ -46,7 +48,13 @@ export default function DocenteCard({ docente }: { docente: Docente }) {
             />
             <div className="relative w-24 h-28 bg-white overflow-hidden border-4 border-white/20 shadow-xl rounded-sm">
               {docente.foto ? (
-                <img src={docente.foto} alt={docente.nombre} loading="lazy" className="w-full h-full object-cover" />
+                <img
+                  src={docente.foto}
+                  alt={docente.nombre}
+                  loading="lazy"
+                  className="w-full h-full object-cover"
+                  style={docente.fotoPosicion ? { objectPosition: docente.fotoPosicion } : undefined}
+                />
               ) : (
                 <div className="w-full h-full bg-gray-100 flex items-end justify-center">
                   <User className="w-20 h-20 text-gray-300 -mb-2" />

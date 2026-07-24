@@ -43,50 +43,57 @@ export const perfilEgresado = [
   }
 ];
 
+// Modalidades para obtener el Título Profesional de Ingeniero Agroindustrial
+// (RCU 274-2022 UNT; Reglamento N° 007-2022-UNT/URA).
 export const titulacion = [
   {
-    modalidad: "Modalidad de titulación 1",
-    descripcion: "Descripción breve de la primera modalidad para obtener el título profesional.",
+    modalidad: "Tesis Profesional",
+    descripcion: "Elaboración, ejecución y sustentación de una tesis con asesor, dentro de una línea de investigación del programa.",
     requisitos: [
-      "Requisito 1",
-      "Requisito 2",
-      "Requisito 3"
+      "Contar con el grado de Bachiller en Ingeniería Agroindustrial.",
+      "Proyecto de tesis aprobado y resolución de nombramiento de jurado.",
+      "Sustentación aprobada y tesis empastada con reporte de originalidad (Turnitin < 20%)."
     ]
   },
   {
-    modalidad: "Modalidad de titulación 2",
-    descripcion: "Descripción breve de la segunda modalidad para obtener el título profesional.",
+    modalidad: "Trabajo de Suficiencia Profesional",
+    descripcion: "Informe de experiencia en el campo profesional, conforme a la RCU 274-2022 UNT.",
     requisitos: [
-      "Requisito 1",
-      "Requisito 2"
+      "Contar con el grado de Bachiller en Ingeniería Agroindustrial.",
+      "Acreditar 1 año consecutivo o 2 años alternos de experiencia profesional posterior al bachillerato.",
+      "Informe estructurado según el Reglamento N° 007-2022-UNT/URA y sustentación."
     ]
   }
 ];
 
+// Fuente: documentos oficiales "GRADO BACHILLER" y "TÍTULO PROFESIONAL" del
+// programa (Drive). Base normativa: RCU 274-2022 UNT, RCD N° 0042-2024-SUNEDU,
+// Reglamento N° 007-2022-UNT/URA.
 export const tramites = [
   {
     id: "bachiller",
     titulo: "Grado de Bachiller",
-    descripcion: "Descripción del trámite y procedimiento para obtener el Grado Académico de Bachiller.",
+    descripcion: "Grado de Bachiller en Ingeniería Agroindustrial. Se otorga a quienes han aprobado el currículo vigente, con una duración mínima de cinco años o diez semestres académicos.",
     requisitos: [
-      "Requisito 1",
-      "Requisito 2",
-      "Requisito 3",
-      "Requisito 4"
+      "Haber aprobado todas las asignaturas y créditos del programa de estudios de su currículo de ingreso.",
+      "Acreditar conocimiento de un idioma (de preferencia inglés) en nivel básico, certificado por CIDUNT, el Departamento de Idiomas y Lingüística u otra institución reconocida.",
+      "Aprobar el curso de Trabajo de Investigación (currículo 2018, vigente desde el 01 de abril de 2025)."
     ],
-    pdfUrl: `${import.meta.env.BASE_URL}Requisitos_Bachiller.pdf`
+    // RCU N° 185-2025 UNT (adecuación de requisitos de grado).
+    pdfUrl: "https://drive.google.com/file/d/1HTOC2JIKhDjlxEQbabvMTXVq2TVz-zFz/view"
   },
   {
     id: "titulo",
     titulo: "Título Profesional",
-    descripcion: "Descripción del trámite y procedimiento para obtener el Título Profesional.",
+    descripcion: "Título de Ingeniero Agroindustrial. Se obtiene por Tesis Profesional o por Trabajo de Suficiencia Profesional, previa obtención del grado de Bachiller.",
     requisitos: [
-      "Requisito 1",
-      "Requisito 2",
-      "Requisito 3",
-      "Requisito 4"
+      "Contar con el grado de Bachiller en Ingeniería Agroindustrial.",
+      "Tesis Profesional: proyecto con asesor, sustentación y tesis empastada con reporte de originalidad (Turnitin < 20%).",
+      "Trabajo de Suficiencia Profesional: 1 año consecutivo o 2 alternos de experiencia profesional (RCU 274-2022 UNT).",
+      "Declaración jurada de autoría y carta de autorización de publicación."
     ],
-    pdfUrl: `${import.meta.env.BASE_URL}Requisitos_Titulo.pdf`
+    // Reglamento General de Otorgamiento de Grados y Títulos (N° 007-2022-UNT/URA).
+    pdfUrl: "https://drive.google.com/file/d/1gI41xirJI8IYYi7w3wid1P19v8JQlSSd/view"
   }
 ];
 
