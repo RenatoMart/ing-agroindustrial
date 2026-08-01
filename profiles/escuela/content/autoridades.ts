@@ -1,15 +1,25 @@
 import fotoNinaquispe from '../assets/personas/ninaquispe-zare.webp';
+import fotoSanchez from '../assets/personas/sanchez-gonzalez.webp';
 
 export const director = {
-  nombre: "Dr. Viviano Paulino Ninaquispe Zare",
+  nombre: "Mg. Jesús Alexander Sánchez González",
   cargo: "Director de la Escuela Profesional de Ingeniería Agroindustrial",
-  correo: "vninaquispe@unitru.edu.pe",
-  bio: "Doctor en Ciencias e Ingeniería por la Universidad Nacional de Trujillo, Magíster en Gerencia de Industrias Agropecuarias y Pesqueras e Ingeniero Agroindustrial por la Universidad Nacional del Santa. Docente principal a dedicación exclusiva del Departamento Académico de Ciencias Agroindustriales.",
-  foto: fotoNinaquispe // Foto oficial (carpeta compartida assets/personas/).
+  correo: "agroindustrial@unitru.edu.pe",
+  bio: "Magíster en Ciencias, mención Microbiología y Tecnología de Alimentos por la Universidad Nacional de Trujillo, y Magíster en Evaluación de la Calidad y Procesos de Certificación en Educación Superior por la Universidad Internacional de La Rioja. Ingeniero Agroindustrial por la Universidad Nacional de Trujillo. Docente nombrado del Departamento Académico de Ciencias Agroindustriales.",
+  foto: fotoSanchez // Foto oficial (carpeta compartida assets/personas/).
 };
 
+// El Director del Departamento Académico se muestra en esta misma página (el menú
+// tiene la entrada "Director de departamento" → /organizacion/direccion). La página
+// solo expone `director` y `coordinadores`, así que va como primera tarjeta de esta lista.
 // PENDIENTE: no se ha proporcionado la relación de coordinadores del programa.
 export const coordinadores = [
+  {
+    nombre: "Dr. Viviano Paulino Ninaquispe Zare",
+    cargo: "Director del Departamento Académico de Ciencias Agroindustriales",
+    correo: "vninaquispe@unitru.edu.pe",
+    foto: fotoNinaquispe
+  },
   {
     nombre: "Nombre del Coordinador(a)",
     cargo: "Coordinador(a) Académico",

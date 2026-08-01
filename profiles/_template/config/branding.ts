@@ -18,7 +18,8 @@ export const branding: BrandingConfig = {
     bolsaTrabajo: '', // logoBolsa,
     libroReclamaciones: '', // libroReclamaciones,
   },
-  heroImages: [], // [hero1, hero2, hero3],
+  // `position` = encuadre del recorte (object-position). Por defecto: 'center 25%'.
+  heroImages: [], // [{ src: hero1, position: 'center 25%' }, { src: hero2 }, { src: hero3 }],
   alt: {
     universidad: '[Universidad]',
     escuela: '[Escuela]',

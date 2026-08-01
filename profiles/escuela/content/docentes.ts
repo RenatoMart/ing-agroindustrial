@@ -4,6 +4,12 @@
 //   - cursoPrincipal: el curso/área principal que aparece en el FRENTE de la card
 //   - especialidades: lista que aparece al voltear la card (reverso). Agrega 2-3 por docente.
 //   - foto: ruta de la foto o null (muestra silueta placeholder)
+//   - fotoPosicion: encuadre del recorte de la foto (`object-position` CSS), p. ej. "center 35%".
+//     OPCIONAL: por defecto la card usa "center 20%", que prioriza el centro-superior (la cabeza).
+//     El marco de la card tiene proporción 4:5, muy cercana al 2:3 de las fotos, así que recorta
+//     poco y el mismo encuadre sirve en cualquier tamaño de pantalla. Solo hace falta este dato
+//     si una foto puntual está descentrada. Valores más bajos (10%) suben el encuadre; más
+//     altos (50%) lo bajan.
 //   - investigador: true si el docente es investigador (habilita el filtro "Investigadores")
 //   - categoriaInvestigacion: categoría/nivel de investigación (p. ej. RENACYT). Solo aplica
 //     si investigador === true; se muestra como distintivo en la card.
@@ -43,7 +49,6 @@ export const docentes = [
       "Ingeniero Agroindustrial — Universidad Nacional del Santa"
     ],
     foto: fotoSiche,
-    fotoPosicion: "50% 40%",
     investigador: false,
     categoriaInvestigacion: null,
     condicion: "Nombrado"
@@ -59,7 +64,6 @@ export const docentes = [
       "Ingeniera en Industrias Alimentarias — Universidad Nacional Agraria"
     ],
     foto: fotoRojasPadilla,
-    fotoPosicion: "50% 30%",
     investigador: false,
     categoriaInvestigacion: null,
     condicion: "Nombrado"
@@ -75,7 +79,6 @@ export const docentes = [
       "Ingeniero Agroindustrial — UNT"
     ],
     foto: fotoLinares,
-    fotoPosicion: "50% 30%",
     investigador: false,
     categoriaInvestigacion: null,
     condicion: "Nombrado"
@@ -91,7 +94,6 @@ export const docentes = [
       "Ingeniero Agroindustrial — Universidad Nacional del Santa"
     ],
     foto: fotoNinaquispe,
-    fotoPosicion: "50% 40%",
     investigador: false,
     categoriaInvestigacion: null,
     condicion: "Nombrado"
@@ -106,7 +108,6 @@ export const docentes = [
       "Ingeniero en Industrias Alimentarias — Universidad Nacional Agraria La Molina"
     ],
     foto: fotoRojasNaccha,
-    fotoPosicion: "50% 40%",
     investigador: false,
     categoriaInvestigacion: null,
     condicion: "Nombrado"
@@ -122,7 +123,6 @@ export const docentes = [
       "Ingeniera en Industrias Alimentarias — Universidad Nacional Agraria La Molina"
     ],
     foto: fotoBarraza,
-    fotoPosicion: "50% 40%",
     investigador: false,
     categoriaInvestigacion: null,
     condicion: "Nombrado"

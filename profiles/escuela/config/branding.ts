@@ -19,7 +19,13 @@ export const branding: BrandingConfig = {
     bolsaTrabajo: logoBolsa,
     libroReclamaciones,
   },
-  heroImages: [hero1, hero2, hero3],
+  // `position` = encuadre del recorte (object-position). Sube o baja el valor
+  // vertical para reencuadrar una foto sin tocar el componente. Por defecto: 'center 25%'.
+  heroImages: [
+    { src: hero1, position: 'center 25%' },
+    { src: hero2, position: 'center 25%' },
+    { src: hero3, position: 'center 50%' },
+  ],
   alt: {
     universidad: 'Universidad Nacional de Trujillo',
     escuela: 'Programa de Estudios de Ingeniería Agroindustrial',

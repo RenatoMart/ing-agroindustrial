@@ -89,13 +89,17 @@ export default function Inicio() {
           loadedImgs.has(i) ? (
             <img
               key={i}
-              src={img}
+              src={img.src}
               alt=""
               aria-hidden="true"
               decoding="async"
               loading={i === 0 ? 'eager' : 'lazy'}
-              className="absolute inset-0 z-0 w-full h-full object-cover object-center transition-opacity duration-[1500ms] ease-in-out transform-gpu"
-              style={{ opacity: i === heroIdx ? 1 : 0, willChange: 'opacity' }}
+              className="absolute inset-0 z-0 w-full h-full object-cover transition-opacity duration-[1500ms] ease-in-out transform-gpu"
+              style={{
+                opacity: i === heroIdx ? 1 : 0,
+                objectPosition: img.position ?? 'center 25%',
+                willChange: 'opacity',
+              }}
             />
           ) : null
         )}

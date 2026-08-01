@@ -73,6 +73,20 @@ export interface SiteConfig {
   enlacesInstitucionales: { label: string; url: string }[];
 }
 
+/**
+ * Una imagen del carrusel del hero con su encuadre.
+ *
+ * `object-cover` recorta la imagen para llenar el marco; con el encuadre por
+ * defecto del navegador (centrado) las fotos verticales pierden lo importante
+ * (caras, cabecera de la escena). `position` es un `object-position` CSS
+ * (p. ej. `'center 25%'`) y permite subir o bajar el recorte foto por foto,
+ * desde el perfil, sin tocar el código. Si se omite, se usa `'center 25%'`.
+ */
+export interface HeroImage {
+  src: string;
+  position?: string;
+}
+
 export interface BrandingConfig {
   /** Rutas resueltas por Vite a partir de los imports del perfil. */
   logos: {
@@ -82,7 +96,7 @@ export interface BrandingConfig {
     libroReclamaciones: string;
   };
   /** Imágenes de fondo del hero (carrusel, máx. recomendado 3). */
-  heroImages: string[];
+  heroImages: HeroImage[];
   /** Textos alternativos de las marcas (accesibilidad). */
   alt: {
     universidad: string;

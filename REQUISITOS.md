@@ -5,7 +5,7 @@ con el formato en que debe entregarse y su estado actual.
 
 - **Escuela activa:** Ingeniería Agroindustrial — Facultad de Ciencias Agropecuarias, UNT
 - **Perfil que se edita:** `profiles/escuela/` (**nunca** `src/`)
-- **Última actualización:** 23-07-2026
+- **Última actualización:** 31-07-2026
 
 ## Cómo leer el estado
 
@@ -49,6 +49,7 @@ Editar `src/` fue **aprobado por el usuario** para esta feature. Implementado en
 | `R.D. N° 503-2026-FAC.CC.AGROP.` | Integrantes de 3 comités (Egresado, Ciencia y Tecnología, Tutoría) |
 | Carpeta DOCENTES (Drive) | 9 fotos oficiales de docentes (**cargadas** ✅) |
 | Carpeta GRADOS ACADÉMICOS (Drive) | Trámites de Bachiller y Título (**cargados** ✅) |
+| Datos dictados por el usuario (31-07-2026) | Correo institucional, horario de atención, Director de escuela (Sánchez) y Director de departamento (Ninaquispe) |
 
 ## Resumen por sección
 
@@ -61,7 +62,7 @@ Editar `src/` fue **aprobado por el usuario** para esta feature. Implementado en
 | Organización | ⚠️ | 7 fotos restantes, RENACYT, cursos por docente, organigrama, 2 comités, órganos de gobierno |
 | Investigación | ⬜ | Todo |
 | Admisión | ⚠️ | Modalidades, requisitos, fechas |
-| Contacto | ⚠️ | Teléfono y correo institucional, horario, redes |
+| Contacto | ⚠️ | Teléfono institucional, Libro de Reclamaciones |
 
 # 1. Configuración global
 
@@ -153,8 +154,9 @@ Decisiones de mapeo aplicadas:
 
 | Dato | Dónde se edita | Formato esperado | Estado | Nota / qué falta |
 |---|---|---|---|---|
-| Director de escuela | `content/autoridades.ts` → `director` | `{ nombre, cargo, correo, bio, foto }` | ✅ | Cargado **con foto** (Ninaquispe, carpeta compartida `assets/personas/`). `AutoridadCard` (src) ajustado para mostrar foto |
-| **Coordinadores** | `content/autoridades.ts` → `coordinadores` | `{ nombre, cargo, correo }` | ⬜ | No se ha proporcionado la relación |
+| Director de escuela | `content/autoridades.ts` → `director` | `{ nombre, cargo, correo, bio, foto }` | ✅ | **Mg. Jesús Alexander Sánchez González** (31-07-2026), con foto oficial. Bio armada con sus grados del escalafón. Correo: el institucional del programa (no se tiene uno personal) |
+| Director de departamento | `content/autoridades.ts` → `coordinadores[0]` | `{ nombre, cargo, correo, foto }` | ⚠️ | **Dr. Viviano Paulino Ninaquispe Zare** (31-07-2026), con foto oficial. Se muestra en la misma página `/organizacion/direccion` (el menú ya tiene esa entrada), pero **cae bajo el título "Coordinaciones"**, que está fijo en `src/pages/autoridades/Direccion.tsx`. Cambiar ese título requiere tocar `src/` |
+| **Coordinadores** | `content/autoridades.ts` → `coordinadores` | `{ nombre, cargo, correo }` | ⬜ | No se ha proporcionado la relación (siguen 3 tarjetas de plantilla) |
 | Docentes: nombre | `content/docentes.ts` → `nombre` | Texto | ✅ | 16 docentes |
 | Docentes: grado | `content/docentes.ts` → `grado` | "Doctor" / "Doctora" / "Magíster" | ✅ | Del escalafón UNT |
 | Docentes: departamento | `content/docentes.ts` → `departamento` | Texto | ✅ | Todos en Ciencias Agroindustriales |
@@ -209,12 +211,26 @@ Panel lateral flotante + enlaces.
 | Dirección | `content/contacto.ts` → `direccion` | Texto | ✅ | Av. Juan Pablo II s/n — Ciudad Universitaria |
 | Mapa | `content/contacto.ts` → `mapaEmbedUrl` | URL "embed" de Google Maps | ⚠️ | Apunta al campus UNT genérico. Afinar al pabellón de la facultad |
 | **Teléfono institucional** | `content/contacto.ts` → `telefonos` | Lista de textos | ⬜ | **Decisión 14-07-2026: no se publican los celulares personales** de las autoridades que trae el documento. Falta un teléfono institucional (con anexo) |
-| **Correo institucional** | `content/contacto.ts` → `correo` | Correo | ⬜ | Falta un correo del programa (no el personal del director) |
-| **Horario de atención** | `content/contacto.ts` → `horarioAtencion` | Texto | ⬜ | |
-| **Redes sociales** | `content/contacto.ts` → `redesSociales` | URLs | ⬜ | Facebook, Instagram, YouTube, X |
+| Correo institucional | `content/contacto.ts` → `correo` | Correo | ✅ | `agroindustrial@unitru.edu.pe` (31-07-2026) |
+| Horario de atención | `content/contacto.ts` → `horarioAtencion` | Texto | ✅ | Lunes a Viernes, 7:00 a 14:40 hrs (31-07-2026) |
+| Redes sociales | `content/contacto.ts` → `redesSociales` | URLs | ⚠️ | Facebook e Instagram cargados. **Sin YouTube ni X** (no reportadas) |
 | **Libro de Reclamaciones** | `content/contacto.ts` → `libroReclamacionesUrl` | URL | ⬜ | |
 
 # 9. Recursos gráficos (`profiles/escuela/assets/`)
+
+> **Encuadre de las fotos (31-07-2026).** Las fotos se recortan con `object-cover`. El recorte ya
+> **no** es fijo: se ajusta foto por foto desde los datos, sin tocar componentes.
+> - Hero → `config/branding.ts` → `heroImages[i].position` (p. ej. `'center 25%'`).
+> - Docentes → `content/docentes.ts` → `fotoPosicion`. Comités → `content/comites.ts` → `fotoPosicion`.
+>
+> Por defecto se usa `'center 20%'` (prioriza el centro-superior, donde está la cabeza). Valores más
+> bajos (10%) suben el encuadre; más altos (50%) lo bajan. Si una foto sale mal encuadrada, **se
+> corrige solo ese valor**.
+>
+> El marco de la tarjeta de docente usa **proporción fija 4:5**, no altura fija: las tarjetas cambian
+> de ancho según la columna del grid, y con altura fija el marco pasaba de vertical a apaisado según
+> la pantalla, moviendo el recorte y cortando cabezas. Las fotos de `personas/` son **400×600 (2:3)**;
+> conviene mantener ese formato para las que falten.
 
 | Archivo | Uso | Estado | Nota |
 |---|---|---|---|
@@ -224,7 +240,7 @@ Panel lateral flotante + enlaces.
 | `libro-reclamaciones.svg` | Hero | ⚠️ | Existe |
 | `hero/hero-1..3` | Fondo del hero | ⚠️ | Existen. **Confirmar que son fotos de Agroindustrial**. Recomendado: `.webp`, horizontal |
 | `personas/*.webp` (fotos de personas) | Docentes · Dirección · Comités | ⚠️ | **9 cargadas** en la carpeta compartida `assets/personas/`. Faltan 7 docentes (ver sección Organización) |
-| Foto del director | Página Dirección | ✅ | Ninaquispe, en `assets/personas/` |
+| Foto del director | Página Dirección | ✅ | Sánchez (escuela) y Ninaquispe (departamento), en `assets/personas/` |
 | Imágenes de ambientes | Inicio | ⬜ | Horizontal. La carpeta LABORATORIOS de Drive está vacía |
 | `organigrama/mapa-procesos.png` | Estructura organizacional | ⚠️ | Confirmar si corresponde a Agroindustrial |
 
@@ -235,7 +251,7 @@ Panel lateral flotante + enlaces.
 2. **Misión y visión** — vacías en el documento fuente.
 3. **Sumillas de la malla** — la malla está cargada; falta la descripción de cada curso.
 4. **7 fotos de docentes restantes** y **cursos por docente**.
-5. **Contacto institucional** — teléfono, correo y horario.
+5. **Teléfono institucional** — correo y horario ya cargados; falta el teléfono con anexo.
 6. **Organigrama** y **SINEACE** — diferidos por el usuario (carpetas en Drive).
 7. **Órganos de Gobierno** y 2 comités (Currículo, Responsabilidad Social) — faltan nombres.
 

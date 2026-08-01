@@ -28,7 +28,7 @@ function MiembroCard({ miembro }: { miembro: ComiteMiembro }) {
               alt={miembro.nombre}
               loading="lazy"
               className="w-full h-full object-cover"
-              style={miembro.fotoPosicion ? { objectPosition: miembro.fotoPosicion } : undefined}
+              style={{ objectPosition: miembro.fotoPosicion ?? 'center 25%' }}
             />
           ) : (
             <div className="w-full h-full bg-gray-100 flex items-end justify-center">

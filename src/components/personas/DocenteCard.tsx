@@ -4,7 +4,7 @@ import { User, Check, FlaskConical, BadgeCheck } from 'lucide-react';
 
 /**
  * DocenteCard — Tarjeta con volteo 3D (flip).
- * Frente: cargo (grado) · línea separadora · nombre · curso principal.
+ * Frente: foto a todo el ancho · cargo (grado) · línea separadora · nombre · curso principal.
  * Reverso (al hacer hover o enfocar con teclado): sus especialidades.
  * El flip es solo visual; ambas caras viven en el DOM, así los lectores de
  * pantalla acceden a todo. Respeta prefers-reduced-motion (flip instantáneo).
@@ -14,7 +14,12 @@ interface Docente {
   nombre: string;
   cursoPrincipal: string;
   foto?: string | null;
-  /** Encuadre de la foto dentro del marco, p. ej. '50% 60%' (por defecto centrado). */
+  /**
+   * Encuadre de la foto dentro del marco (`object-position` CSS), p. ej. '50% 60%'.
+   * Súbelo o bájalo por docente cuando el recorte por defecto le tape la cara.
+   * Si se omite, se usa 'center 20%': prioriza la parte central-superior de la
+   * foto, que es donde está la cabeza en un retrato.
+   */
   fotoPosicion?: string;
   especialidades?: string[];
   investigador?: boolean;
@@ -35,38 +40,40 @@ export default function DocenteCard({ docente }: { docente: Docente }) {
       transition={{ duration: 0.3 }}
       tabIndex={0}
       aria-label={`${docente.grado} ${docente.nombre}. Curso principal: ${docente.cursoPrincipal}. Enfoca o pasa el cursor para ver sus especialidades.`}
-      className="group h-[340px] rounded-2xl outline-none [perspective:1200px] focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2"
+      className="group h-full rounded-2xl outline-none [perspective:1200px] focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2"
     >
       <div className="relative h-full w-full transition-transform duration-1000 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] group-focus-visible:[transform:rotateY(180deg)]">
 
-        {/* ── FRENTE ── */}
-        <div className="absolute inset-0 [backface-visibility:hidden] bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden flex flex-col">
-          {/* Franja superior con avatar */}
-          <div className="relative bg-primary pt-8 pb-12 flex justify-center items-end shrink-0">
-            <div className="absolute inset-0 opacity-[0.06]"
-              style={{ backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)', backgroundSize: '16px 16px' }}
-            />
-            <div className="relative w-24 h-28 bg-white overflow-hidden border-4 border-white/20 shadow-xl rounded-sm">
-              {docente.foto ? (
-                <img
-                  src={docente.foto}
-                  alt={docente.nombre}
-                  loading="lazy"
-                  className="w-full h-full object-cover"
-                  style={docente.fotoPosicion ? { objectPosition: docente.fotoPosicion } : undefined}
-                />
-              ) : (
-                <div className="w-full h-full bg-gray-100 flex items-end justify-center">
-                  <User className="w-20 h-20 text-gray-300 -mb-2" />
-                </div>
-              )}
-            </div>
-            <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/60 to-transparent" />
+        {/* ── FRENTE ──
+            Va en flujo (no absoluto) para que su alto —foto proporcional + texto—
+            defina el de la tarjeta. El grid iguala los altos de cada fila. */}
+        <div className="[backface-visibility:hidden] h-full bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden flex flex-col">
+          {/* Franja de foto: ocupa todo el ancho superior de la card. El contorno
+              azul va solo aquí, no alrededor de la card entera.
+              El marco usa PROPORCIÓN fija (4:5), no altura fija: las tarjetas
+              cambian de ancho según la columna del grid, y con un alto fijo el
+              marco pasaba de vertical a apaisado según la pantalla, moviendo el
+              recorte y cortando las cabezas. Con 4:5 —cercano al 2:3 de las
+              fotos— el recorte es el mismo en todo tamaño y apenas recorta. */}
+          <div className="relative aspect-[4/5] shrink-0 overflow-hidden rounded-t-2xl border-2 border-primary bg-primary">
+            {docente.foto ? (
+              <img
+                src={docente.foto}
+                alt={docente.nombre}
+                loading="lazy"
+                className="w-full h-full object-cover"
+                style={{ objectPosition: docente.fotoPosicion ?? 'center 20%' }}
+              />
+            ) : (
+              <div className="w-full h-full bg-gray-100 flex items-end justify-center">
+                <User className="w-1/2 h-auto text-gray-300 -mb-2" />
+              </div>
+            )}
           </div>
 
           {/* Cargo · línea separadora · nombre · curso principal */}
-          <div className="flex flex-col flex-1 p-5 text-center justify-center">
-            <p className="text-gold text-[10px] font-black uppercase tracking-[0.2em]">
+          <div className="flex flex-col flex-1 px-5 pt-5 pb-4 text-center justify-start">
+            <p className="text-gold text-[10px] font-black uppercase tracking-[0.08em]">
               {docente.grado}
             </p>
             <div className="border-t border-gray-100 my-3" />
@@ -82,7 +89,7 @@ export default function DocenteCard({ docente }: { docente: Docente }) {
         {/* ── REVERSO ── */}
         <div className="absolute inset-0 [transform:rotateY(180deg)] [backface-visibility:hidden] bg-primary rounded-2xl shadow-lg overflow-hidden flex flex-col p-5 text-white">
           <div className="text-center shrink-0">
-            <p className="text-gold text-[10px] font-black uppercase tracking-[0.2em]">
+            <p className="text-gold text-[10px] font-black uppercase tracking-[0.08em]">
               {docente.grado}
             </p>
             <h4 className="font-display font-bold text-sm leading-tight mt-1">
