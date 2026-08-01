@@ -173,15 +173,13 @@ Decisiones de mapeo aplicadas:
 
 # 6. Investigación
 
-Ninguna de estas filas tiene información en el documento (todas vienen vacías).
-
-| Dato | Dónde se edita | Formato esperado | Estado |
-|---|---|---|---|
-| **Líneas de investigación** | `content/investigacion.ts` → `lineasInvestigacion` | `{ nombre, descripcion, responsable }` | ⬜ |
-| **Proyectos** | `content/investigacion.ts` → `proyectos` | `{ titulo, estado, año, descripcion, investigadores[] }` | ⬜ |
-| **Publicaciones** | `content/investigacion.ts` → `publicaciones` | `{ titulo, autores, año, revista, url }` | ⬜ |
+| Dato | Dónde se edita | Formato esperado | Estado | Nota / qué falta |
+|---|---|---|---|---|
+| Líneas de investigación | `content/investigacion.ts` → `lineasInvestigacion` | `{ nombre, descripcion, responsable }` | ⚠️ | **12 líneas cargadas** desde la tabla "LINEA DE INVESTIGACION" (Drive), invertida de docente→líneas a línea→docentes. La fuente no da un responsable único por línea, así que `responsable` lista a todos los docentes de esa línea. `descripcion` queda vacía (no hay sumilla del área en la fuente) |
+| **Proyectos** | `content/investigacion.ts` → `proyectos` | `{ titulo, estado, año, descripcion, investigadores[] }` | ⬜ | |
+| Publicaciones | `content/investigacion.ts` → `publicaciones` | `{ titulo, autores, año, revista, url }` | ⚠️ | **3 publicaciones reales cargadas** (verificadas en revistas.unitru.edu.pe por metadato `citation_author`, no solo apellido): Gabriela Barraza-Jáuregui (2026), Julio César Rojas-Naccha (2026), Viviano Ninaquispe Zare (2014). Hay más candidatas por apellido (Daniel Salvador Rodríguez, posibles Linares/Sánchez/Huaccha) sin verificar aún — pedir si se quieren agregar |
 | **Convenios** | `content/investigacion.ts` → `convenios` | `{ institucion, tipo, descripcion, vigencia }` | ⬜ |
-| Revistas | — | — | 🚫 (página "En Construcción" en `src/`) |
+| Revistas | `content/investigacion.ts` → `revistas` + `src/pages/investigacion/Revistas.tsx` | `{ nombre, descripcion, issn, doi, periodicidad, indexaciones[], correo, url }` | ✅ | **HECHO** (25-07-2026, editar `src/` autorizado por el usuario para esta página): Agroindustrial Science, revista propia de la UNT. ISSN, DOI, indexaciones (DOAJ, EBSCO, REDIB...) y contacto verificados en revistas.unitru.edu.pe |
 
 # 7. Admisión
 
@@ -190,8 +188,9 @@ Panel lateral flotante + enlaces.
 | Dato | Dónde se edita | Formato esperado | Estado | Nota / qué falta |
 |---|---|---|---|---|
 | Portal de Admisión | `content/admision.ts` → `portalAdmision` | URL | ✅ | `admisionunt.info/carreraDetalle/24` |
-| **Modalidades de ingreso** | `content/admision.ts` → `modalidadesAdmision` | `{ titulo, dirigidoA, vacantes, descripcion }` | ⬜ | Faltan las modalidades y el número de vacantes |
-| **Requisitos y fechas** | `content/admision.ts` → `infoUtilAdmision` | `{ titulo, detalle }` | ⬜ | |
+| Modalidades de ingreso | `content/admision.ts` → `modalidadesAdmision` | `{ titulo, dirigidoA, vacantes, descripcion }` | ✅ | **6 modalidades cargadas** desde el Reglamento N° 013-2023-DAD/UNT (R.C.U. N° 229-2026/UNT, vigente desde 2027-I): Ordinario, Premios de Excelencia/COAR, Discapacidad, Deportistas/Víctimas de la Violencia, CEPUNT, Traslados/Segunda Profesión. Los porcentajes son los del reglamento general UNT; no hay cifra exacta de vacantes específica de Agroindustrial |
+| Requisitos | `content/admision.ts` → `infoUtilAdmision` | `{ titulo, detalle }` | ✅ | Cargado desde el art. 15° del reglamento (documentos de inscripción) |
+| **Fechas** | `content/admision.ts` → `infoUtilAdmision` | `{ titulo, detalle }` | ⬜ | El reglamento no trae el cronograma con fechas concretas (es un documento aparte) |
 | Estadística: Matriculados | `config/navigation.ts` → `ADMISION_GROUPS` | URL | ✅ | Ficha pública del programa |
 | Estadística: Graduados | `config/navigation.ts` → `ADMISION_GROUPS` | URL | ✅ | Ficha pública del programa |
 | **Estadística: Ingresantes** | `config/navigation.ts` → `ADMISION_GROUPS` | URL | ⬜ | La Declaración Pública no declara fuente para este dato |

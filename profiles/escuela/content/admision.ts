@@ -13,29 +13,57 @@ export interface InfoUtilItem {
   detalle: string;
 }
 
+// Fuente: Reglamento N° 013-2023-DAD/UNT "Reglamento de Admisión a los Programas
+// de Estudios de Pregrado en la UNT" V.2.0 (aprobado con R.C.U. N° 229-2026/UNT,
+// vigente desde el proceso de admisión 2027-I). Es el reglamento general de la
+// UNT (rige para todos los programas, incluido Ingeniería Agroindustrial, que
+// pertenece al Área B - Ciencias Básicas y Tecnológicas, Prueba B, art. 42°).
+// Los porcentajes de vacantes son los que fija el reglamento; no hay una cifra
+// exacta de vacantes por modalidad específica para Agroindustrial.
 export const modalidadesAdmision: ModalidadAdmision[] = [
   {
-    titulo: 'Modalidad de ingreso 1',
-    dirigidoA: 'A quién está dirigida esta modalidad.',
-    vacantes: 'Aprox. 00 vacantes',
-    descripcion: 'Descripción breve de la primera modalidad de ingreso.',
+    titulo: 'Examen Ordinario',
+    dirigidoA: 'Egresados de Educación Secundaria y estudiantes cursando el 5.° año (reservan 3 vacantes por programa).',
+    vacantes: '55% del total de vacantes del programa',
+    descripcion: 'Modalidad a la que se somete la mayoría de los postulantes, en igualdad de condiciones. Ingeniería Agroindustrial evalúa mediante la Prueba B (Área de Ciencias Básicas y Tecnológicas).',
   },
   {
-    titulo: 'Modalidad de ingreso 2',
-    dirigidoA: 'A quién está dirigida esta modalidad.',
-    vacantes: 'Aprox. 00 vacantes',
-    descripcion: 'Descripción breve de la segunda modalidad de ingreso.',
+    titulo: 'Examen Extraordinario — Premios de Excelencia y COAR',
+    dirigidoA: 'Los dos primeros puestos del orden de mérito de instituciones educativas secundarias de La Libertad y egresados del Colegio de Alto Rendimiento (COAR).',
+    vacantes: 'Entre 5% y 10% de las vacantes de la modalidad ordinaria (supernumerarias)',
+    descripcion: 'Vacantes supernumerarias asignadas y gestionadas por la Dirección de Admisión de la UNT.',
   },
   {
-    titulo: 'Modalidad de ingreso 3',
-    dirigidoA: 'A quién está dirigida esta modalidad.',
-    vacantes: 'Aprox. 00 vacantes',
-    descripcion: 'Descripción breve de la tercera modalidad de ingreso.',
+    titulo: 'Examen Extraordinario — Personas con Discapacidad',
+    dirigidoA: 'Postulantes con discapacidad acreditada mediante certificado emitido por una IPRESS.',
+    vacantes: '5% del total de vacantes del programa',
+    descripcion: 'Reserva de vacantes establecida por Ley General de la Persona con Discapacidad.',
+  },
+  {
+    titulo: 'Examen Extraordinario — Deportistas y Víctimas de la Violencia',
+    dirigidoA: 'Deportistas calificados de alto nivel acreditados por el IPD y beneficiarios del Programa de Reparaciones de Víctimas de la Violencia.',
+    vacantes: 'Vacantes supernumerarias, en la segunda fase del proceso',
+    descripcion: 'Asignadas y gestionadas directamente por la Dirección de Admisión de la UNT.',
+  },
+  {
+    titulo: 'Centro Preuniversitario (CEPUNT)',
+    dirigidoA: 'Estudiantes matriculados en el CEPUNT, con examen de ubicación y tres exámenes sumativos vigentes.',
+    vacantes: '40% de las vacantes de la modalidad ordinaria',
+    descripcion: 'El ingresante por CEPUNT está exonerado del examen ordinario, pero no del pago por derecho de postulación.',
+  },
+  {
+    titulo: 'Traslados y Segunda Profesión',
+    dirigidoA: 'Estudiantes con 4 semestres (o 72 créditos) aprobados en una universidad, o profesionales titulados que postulan a una segunda carrera.',
+    vacantes: 'Máximo 6 vacantes (traslados) o 4 vacantes (segunda profesión) por programa, supernumerarias',
+    descripcion: 'El traslado solo procede entre programas homólogos o de la misma área de formación profesional.',
   },
 ];
 
 export const infoUtilAdmision: InfoUtilItem[] = [
-  { titulo: 'Requisitos', detalle: 'Documentos que debe presentar el postulante.' },
+  {
+    titulo: 'Requisitos',
+    detalle: 'Inscripción en línea en el portal de la Dirección de Admisión, adjuntando: recibo de pago por derecho de inscripción, fotografía digital a color tamaño pasaporte con fondo blanco, DNI (o carné de extranjería/pasaporte) y, para postulantes de 5.° de secundaria, constancia de estudios y autorización del padre o apoderado.',
+  },
   { titulo: 'Fechas', detalle: 'Periodos o meses en que se realizan los exámenes de admisión.' },
 ];
 

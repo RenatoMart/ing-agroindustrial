@@ -38,6 +38,7 @@ const Titulacion = lazy(() => import('../pages/academico/Titulacion'));
 const InvestigacionIndex = lazy(() => import('../pages/investigacion/index'));
 const Lineas = lazy(() => import('../pages/investigacion/Lineas'));
 const Publicaciones = lazy(() => import('../pages/investigacion/Publicaciones'));
+const Revistas = lazy(() => import('../pages/investigacion/Revistas'));
 const ProyectosGrupo = lazy(() => import('../pages/investigacion/ProyectosGrupo')); // proyectos + tesis
 const Convenios = lazy(() => import('../pages/investigacion/convenios'));            // reutilizado en Académico
 const Movilidad = lazy(() => import('../pages/academico/Movilidad'));
@@ -113,7 +114,7 @@ export default function AppRouter() {
               <Route index element={<Lineas />} />
               <Route path="lineas" element={<Lineas />} />
               <Route path="publicaciones" element={<Publicaciones />} />
-              <Route path="revistas" element={<EnConstruccion titulo="Revistas" />} />
+              <Route path="revistas" element={<Revistas />} />
               <Route path="proyectos" element={<ProyectosGrupo />} />
             </Route>
 
