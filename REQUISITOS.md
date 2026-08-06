@@ -5,7 +5,7 @@ con el formato en que debe entregarse y su estado actual.
 
 - **Escuela activa:** Ingeniería Agroindustrial — Facultad de Ciencias Agropecuarias, UNT
 - **Perfil que se edita:** `profiles/escuela/` (**nunca** `src/`)
-- **Última actualización:** 31-07-2026
+- **Última actualización:** 05-08-2026
 
 ## Cómo leer el estado
 
@@ -58,7 +58,7 @@ Editar `src/` fue **aprobado por el usuario** para esta feature. Implementado en
 | Configuración global | ⚠️ | Entidad acreditadora, enlaces institucionales |
 | Inicio | ⚠️ | Mensaje del decano, ambientes, noticias, avisos |
 | Nosotros | ⚠️ | Valores; confirmar si misión/visión son del programa o de la facultad |
-| Académico | ⚠️ | Sumillas de la malla, objetivos |
+| Académico | ⚠️ | Sumillas de la malla, movilidad, convenios |
 | Organización | ⚠️ | 7 fotos restantes, RENACYT, cursos por docente, organigrama, 2 comités, órganos de gobierno |
 | Investigación | ⬜ | Todo |
 | Admisión | ⚠️ | Modalidades, requisitos, fechas |
@@ -120,8 +120,8 @@ Identidad que se repite en navbar, footer y buscadores.
 | Grado y título | `content/academico.ts` → `gradoAcademico`, `tituloProfesional` | Texto | ✅ | Cargado (hoy ninguna página los usa) |
 | Malla curricular | `content/malla.ts` → `CURRICULUM_DATA` | `{ id, name, type, credits, hoursT, hoursP, cycle, isElective, description }` | ✅ | **Plan 2018 real cargado**: 63 cursos (59 obligatorios + 4 electivos), 208 créditos. Falta solo la **sumilla/descripción** de cada curso (ver abajo) |
 | Prerrequisitos | `content/malla.ts` → `PREREQUISITES_EDGES` | `{ id, source, target, style }` | ✅ | 41 prerrequisitos oficiales cargados desde el Excel |
-| **Objetivos educacionales** | — | — | 🚫 | Página "En Construcción" en `src/`. Sin campo en el perfil |
-| **Objetivos académicos** | — | — | 🚫 | Igual que el anterior |
+| Objetivos educacionales | `content/academico.ts` → `objetivosEducacionales` | `{ codigo, formulacion }` | ✅ | **OE1–OE4 cargados** (Vicerrectorado Académico UNT, confirmado por el usuario 25-07-2026). Editado `src/pages/nosotros/Objetivos.tsx` (aprobado) para reemplazar "En Construcción" |
+| Objetivos académicos | `content/academico.ts` → `objetivosAcademicos` | Lista de textos | ✅ | **5 objetivos cargados** (confirmados por el usuario 25-07-2026), tal cual se transcribieron de la captura. La tabla fuente traía una segunda columna que quedó cortada y no se pudo leer; se dejó fuera a propósito |
 | Titulación / trámites | `content/academico.ts` → `tramites`, `titulacion` | `{ id, titulo, descripcion, requisitos[], pdfUrl }` | ✅ | **Cargado** desde los documentos oficiales de Bachiller y Título (Drive). Bachiller (RCU 274-2022, RCD 0042-2024-SUNEDU) y Título por Tesis / Suficiencia Profesional (Reglamento 007-2022-UNT/URA). `pdfUrl` enlaza a los reglamentos oficiales en Drive |
 | **Movilidad** | `content/academico.ts` → `movilidad` | `{ institucion, tipo, descripcion, modalidad }` | ⬜ | |
 | **Convenios** | `content/investigacion.ts` → `convenios` | `{ institucion, tipo, descripcion, vigencia }` | ⬜ | |
@@ -237,7 +237,7 @@ Panel lateral flotante + enlaces.
 | `logo-escuela.png` | Navbar | ⚠️ | Existe. **Confirmar que es el logo de Agroindustrial** y no de otra escuela |
 | `logo-bolsa-trabajo.png` | Hero | ⚠️ | Existe |
 | `libro-reclamaciones.svg` | Hero | ⚠️ | Existe |
-| `hero/hero-1..3` | Fondo del hero | ⚠️ | Existen. **Confirmar que son fotos de Agroindustrial**. Recomendado: `.webp`, horizontal |
+| `hero/hero-1..3` | Fondo del hero | ✅ | Reemplazadas por fotos reales de Agroindustrial (Drive): plana docente (FOTO GENERAL) y estudiantes en laboratorio (ESTUDIANTES). `.webp`, horizontal, encuadre ajustable por `position` |
 | `personas/*.webp` (fotos de personas) | Docentes · Dirección · Comités | ⚠️ | **9 cargadas** en la carpeta compartida `assets/personas/`. Faltan 7 docentes (ver sección Organización) |
 | Foto del director | Página Dirección | ✅ | Sánchez (escuela) y Ninaquispe (departamento), en `assets/personas/` |
 | Imágenes de ambientes | Inicio | ⬜ | Horizontal. La carpeta LABORATORIOS de Drive está vacía |

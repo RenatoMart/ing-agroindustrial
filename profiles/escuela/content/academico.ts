@@ -1,6 +1,28 @@
 export const gradoAcademico = "Bachiller en Ingeniería Agroindustrial";
 export const tituloProfesional = "Ingeniero Agroindustrial";
 
+// Objetivos Educacionales del programa (OE1–OE4). Fuente: propuesta de Objetivos
+// Educacionales y Académicos del Programa de Ingeniería Agroindustrial, UNT
+// (Vicerrectorado Académico), confirmada por el usuario el 25-07-2026.
+export const objetivosEducacionales = [
+  { codigo: "OE1", formulacion: "Desarrolla procesos, productos o servicios agroindustriales con sostenibilidad y responsabilidad social." },
+  { codigo: "OE2", formulacion: "Gestiona procesos y sistemas productivos en organizaciones agroindustriales." },
+  { codigo: "OE3", formulacion: "Ejerce la profesión con ética, comunicación efectiva, trabajo en equipo y aprendizaje continuo." },
+  { codigo: "OE4", formulacion: "Participa o lidera proyectos de investigación e innovación en el ámbito agroindustrial." }
+];
+
+// Objetivos Académicos del programa. Fuente: misma propuesta de Objetivos
+// Educacionales y Académicos (Vicerrectorado Académico UNT), confirmada por el
+// usuario el 25-07-2026. La tabla fuente traía una segunda columna que quedó
+// cortada en la captura y no se pudo leer; no se incluye (no se inventa).
+export const objetivosAcademicos = [
+  "Gestionar y actualizar sistemáticamente el currículo de Ingeniería Agroindustrial.",
+  "Asegurar el logro progresivo del perfil de egreso y el éxito académico de los estudiantes.",
+  "Incorporar transversalmente la ética, la sostenibilidad y la responsabilidad social universitaria en el proceso formativo.",
+  "Fortalecer la vinculación con empresas, egresados, empleadores, instituciones públicas y otros grupos de interés.",
+  "Consolidar una gestión académica basada en información, autoevaluación, gestión de riesgos y mejora continua."
+];
+
 // El perfil del ingresante al Programa de Ingeniería Agroindustrial comprende el
 // perfil general del ingresante a la Universidad Nacional de Trujillo, más la
 // competencia propia del programa.
