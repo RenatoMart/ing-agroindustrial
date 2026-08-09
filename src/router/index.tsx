@@ -49,6 +49,7 @@ const Organigrama = lazy(() => import('../pages/autoridades/Organigrama')); // O
 
 // Módulo: Admisión (enlazado desde el panel lateral)
 const GuiaPostulante = lazy(() => import('../pages/admision/GuiaPostulante'));
+const Estadisticas = lazy(() => import('../pages/admision/Estadisticas'));
 const Resoluciones = lazy(() => import('../pages/admision/Resoluciones'));
 const GestionFormacionPregrado = lazy(() => import('../pages/admision/GestionFormacionPregrado'));
 
@@ -120,6 +121,7 @@ export default function AppRouter() {
 
             {/* ── Admisión (panel lateral) ── */}
             <Route path="/admision/guia" element={<GuiaPostulante />} />
+            <Route path="/admision/estadisticas" element={<Estadisticas />} />
             <Route path="/admision/resoluciones" element={<Resoluciones />} />
             <Route path="/admision/gestion-formacion-pregrado" element={<GestionFormacionPregrado />} />
 

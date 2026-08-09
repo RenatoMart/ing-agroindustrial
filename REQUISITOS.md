@@ -5,7 +5,7 @@ con el formato en que debe entregarse y su estado actual.
 
 - **Escuela activa:** Ingeniería Agroindustrial — Facultad de Ciencias Agropecuarias, UNT
 - **Perfil que se edita:** `profiles/escuela/` (**nunca** `src/`)
-- **Última actualización:** 05-08-2026
+- **Última actualización:** 09-08-2026
 
 ## Cómo leer el estado
 
@@ -50,6 +50,10 @@ Editar `src/` fue **aprobado por el usuario** para esta feature. Implementado en
 | Carpeta DOCENTES (Drive) | 9 fotos oficiales de docentes (**cargadas** ✅) |
 | Carpeta GRADOS ACADÉMICOS (Drive) | Trámites de Bachiller y Título (**cargados** ✅) |
 | Datos dictados por el usuario (31-07-2026) | Correo institucional, horario de atención, Director de escuela (Sánchez) y Director de departamento (Ninaquispe) |
+| Tabla 0-1 del programa (09-08-2026) | Matriculados por ciclo, egresados y grados de Bachiller 2020–2026 (**página `/admision/estadisticas`** ✅) |
+| Propuesta curricular (09-08-2026) | Los 6 valores institucionales (**cargados** ✅) |
+| `admisionunt.info/docs/VACANTES_2027.pdf` | Vacantes exactas 2027-I de Agroindustrial (**cargadas** ✅) |
+| `organigrama.pdf` (09-08-2026) | Organigrama de la Escuela → convertido a PNG (**cargado** ✅) |
 
 ## Resumen por sección
 
@@ -57,9 +61,9 @@ Editar `src/` fue **aprobado por el usuario** para esta feature. Implementado en
 |---|---|---|
 | Configuración global | ⚠️ | Entidad acreditadora, enlaces institucionales |
 | Inicio | ⚠️ | Mensaje del decano, ambientes, noticias, avisos |
-| Nosotros | ⚠️ | Valores; confirmar si misión/visión son del programa o de la facultad |
+| Nosotros | ✅ | Confirmar si misión/visión son del programa o de la facultad |
 | Académico | ⚠️ | Sumillas de la malla, movilidad, convenios |
-| Organización | ⚠️ | 7 fotos restantes, RENACYT, cursos por docente, organigrama, 2 comités, órganos de gobierno |
+| Organización | ⚠️ | 7 fotos restantes, RENACYT, cursos por docente, 2 comités, órganos de gobierno, administrativos |
 | Investigación | ⬜ | Todo |
 | Admisión | ⚠️ | Modalidades, requisitos, fechas |
 | Contacto | ⚠️ | Teléfono institucional, Libro de Reclamaciones |
@@ -76,7 +80,7 @@ Identidad que se repite en navbar, footer y buscadores.
 | Facultad | `config/site.ts` → `facultad` | Texto | ✅ | Facultad de Ciencias Agropecuarias |
 | Wordmark del navbar | `config/site.ts` → `wordmark` | 2 líneas cortas | ✅ | "Ingeniería" / "Agroindustrial" |
 | Tagline (footer) | `config/site.ts` → `tagline` | 1 frase | ✅ | Tomado de la descripción de la carrera |
-| **Entidad acreditadora** | `config/site.ts` → `acreditacion` | Nombre de entidad + texto del sello | ⬜ | El documento dice que el programa **está acreditado y con reconocimiento internacional**, pero **no nombra la entidad**. ¿ICACIT? ¿SINEACE? Hoy el sello del hero muestra "Acreditada por la Entidad" |
+| **Entidad acreditadora** | `config/site.ts` → `acreditacion` | Nombre de entidad + texto del sello | ⬜ | El documento dice que el programa **está acreditado y con reconocimiento internacional**, pero **no nombra la entidad**. ¿ICACIT? ¿SINEACE? Hoy el sello del hero muestra "Acreditada por la Entidad". **Revisado 09-08-2026:** `admisionunt.info/acreditacioninfo` **NO sirve** para esto — esa página es "Acreditación de **Ingresantes**" (trámite de matrícula del postulante que ingresó), no acreditación institucional del programa; no menciona SINEACE ni ICACIT |
 | Libro de Reclamaciones | `config/site.ts` → `enlaces.libroReclamaciones` | URL | ⬜ | Confirmar la URL oficial de la UNT |
 | Bolsa de trabajo | `config/site.ts` → `enlaces.bolsaTrabajo` | URL | ⬜ | |
 | Enlaces institucionales (footer) | `config/site.ts` → `enlacesInstitucionales` | Lista de `{ label, url }` | ⬜ | Definir qué 3 portales enlazar |
@@ -109,7 +113,7 @@ Identidad que se repite en navbar, footer y buscadores.
 | Hitos | `content/identidad.ts` → `historia.hitos` | `{ año, descripcion }` | ✅ | 1993 · 1995 · 2000 · 2013 · 2018 |
 | Misión | `content/identidad.ts` → `mision` | 1 párrafo | ⚠️ | Cargada (texto proporcionado por el usuario). **Parece institucional/de facultad** (menciona "Región La Libertad", alcance global), no específica del programa — confirmar si existe una propia de Agroindustrial |
 | Visión | `content/identidad.ts` → `vision` | 1 párrafo | ⚠️ | Cargada (texto proporcionado por el usuario). Mismo caso: **"Al año 2030... institución..."** suena institucional, no de programa — confirmar |
-| **Valores** | `content/identidad.ts` → `valores` | `{ nombre, descripcion }` × 6 | ⬜ | No se ha proporcionado |
+| Valores | `content/identidad.ts` → `valores` | `{ nombre, descripcion }` × 6 | ⚠️ | **6 valores cargados** (confirmados por el usuario 09-08-2026): Integridad, Autonomía responsable, Tolerancia y promoción del diálogo, Justicia y respeto por la dignidad humana, Solidaridad y compromiso social, Búsqueda y difusión de la verdad. `descripcion` queda vacía por valor (la fuente no la da individual) |
 
 # 4. Académico
 
@@ -165,8 +169,8 @@ Decisiones de mapeo aplicadas:
 | **Docentes: curso principal** | `content/docentes.ts` → `cursoPrincipal` | Texto | ⬜ | **Falta la asignación de cursos por docente.** Hoy va vacío y el frente de la tarjeta no muestra curso |
 | **Docentes: investigador / RENACYT** | `content/docentes.ts` → `investigador`, `categoriaInvestigacion` | `true/false` + "RENACYT · Nivel X" | ⬜ | Falta saber quién es investigador. Mientras todos sean `false`, el filtro "Investigadores" no aparece |
 | **Docentes: fotos** | `content/docentes.ts` → `foto` + `assets/personas/` | Imagen vertical (~3:4), `.webp` | ⚠️ | **9 de 16 con foto oficial** (descargadas de Drive y verificadas contra la referencia): Ninaquispe, Siche, Zavaleta, Barraza, Sánchez, Linares, Solano, Rojas Naccha, Rojas Padilla. **Faltan 7** (no están en la carpeta DOCENTES): Rodríguez Salinas, Huaccha, Vegas, Salvador, Gómez, Campos, Sisniegas |
-| **Organigrama** | `content/autoridades.ts` → `organigrama` | `{ nombre, cargo, hijos[] }` | ⬜ | **Pendiente: el usuario enviará la imagen.** Hoy tiene la estructura genérica del Estatuto UNT |
-| Mapa de procesos | `assets/organigrama/mapa-procesos.png` | Imagen | ⬜ | Verificar si la actual es de Agroindustrial |
+| Organigrama (imagen) | `assets/organigrama/mapa-procesos.png` | PNG (lo carga un `<img>`, **no admite PDF**) | ✅ | **Organigrama real de la Escuela** (09-08-2026): convertido del PDF del usuario a PNG 4000×2250 (200 dpi, paleta indexada, 186 KB). Muestra Dirección de Escuela → Secretaría · Comités (5) · Sala de Docentes · Laboratorios (8) |
+| `organigrama` (datos) | `content/autoridades.ts` → `organigrama` | `{ nombre, cargo, hijos[] }` | ⬜ | Sigue con la estructura genérica del Estatuto UNT. **Hoy ninguna página lo usa** (la de Organigrama muestra la imagen); alimentaría el componente `OrganigramaFlow`, que está sin montar |
 | **Comités** | `content/comites.ts` + `src/pages/organizacion/Comites.tsx` | Cards de miembros `{ nombre, rol, grado, foto }` | ⚠️ | **HECHO** (4 de 6 comités): Calidad (Solano), Tutoría y Nivelación, Seguimiento al Egresado, Ciencia y Tecnología — con integrantes de la R.D. 503-2026. **Pendientes**: Comité Técnico de Currículo y Comité de Responsabilidad Social (sin datos → siguen "En construcción"). Fotos: docentes con foto se reutilizan; estudiantes con silueta |
 | **Órganos de gobierno** (Consejo de Facultad, Consejeros, Centro Federado) | pendiente `content/` + `src/pages/organizacion/OrganosGobierno.tsx` | Cards de miembros | 🚫 | Editar `src/` aprobado, mismo modelo. **En espera de datos**: faltan los nombres de los integrantes (no están en los documentos) |
 | **Administrativos** | pendiente `content/` + `src/pages/organizacion/…` | Cards de miembros | 🚫 | Editar `src/` aprobado (mismo modelo de cards). **En espera de datos**: el documento indica 1 administrativo y 3 ayudantes de laboratorio, pero **sin nombres** |
@@ -188,13 +192,12 @@ Panel lateral flotante + enlaces.
 | Dato | Dónde se edita | Formato esperado | Estado | Nota / qué falta |
 |---|---|---|---|---|
 | Portal de Admisión | `content/admision.ts` → `portalAdmision` | URL | ✅ | `admisionunt.info/carreraDetalle/24` |
-| Modalidades de ingreso | `content/admision.ts` → `modalidadesAdmision` | `{ titulo, dirigidoA, vacantes, descripcion }` | ✅ | **6 modalidades cargadas** desde el Reglamento N° 013-2023-DAD/UNT (R.C.U. N° 229-2026/UNT, vigente desde 2027-I): Ordinario, Premios de Excelencia/COAR, Discapacidad, Deportistas/Víctimas de la Violencia, CEPUNT, Traslados/Segunda Profesión. Los porcentajes son los del reglamento general UNT; no hay cifra exacta de vacantes específica de Agroindustrial |
-| Requisitos | `content/admision.ts` → `infoUtilAdmision` | `{ titulo, detalle }` | ✅ | Cargado desde el art. 15° del reglamento (documentos de inscripción) |
+| Modalidades de ingreso | `content/admision.ts` → `modalidadesAdmision` | `{ titulo, dirigidoA, vacantes, descripcion }` | ✅ | **6 modalidades** (Reglamento N° 013-2023-DAD/UNT) **con vacantes exactas 2027-I** (09-08-2026, cuadro oficial R.C.U. N° 254-2026/UNT, `admisionunt.info/docs/VACANTES_2027.pdf`, fila código 24): Ordinario **14** (+3 de 5.° secundaria) · CEPUNT **11** · Premios de Excelencia **3** · Discapacidad **1**. Deportistas/Víctimas y Traslados/2.ª Profesión son supernumerarias (sin cifra en el cuadro) |
+| Requisitos | `content/admision.ts` → `infoUtilAdmision` | `{ titulo, detalle }` | ✅ | Inscripción (art. 15° del reglamento) + **acreditación de ingresantes** (documentos y S/ 50.00, de `admisionunt.info/acreditacioninfo`) |
 | **Fechas** | `content/admision.ts` → `infoUtilAdmision` | `{ titulo, detalle }` | ⬜ | El reglamento no trae el cronograma con fechas concretas (es un documento aparte) |
-| Estadística: Matriculados | `config/navigation.ts` → `ADMISION_GROUPS` | URL | ✅ | Ficha pública del programa |
-| Estadística: Graduados | `config/navigation.ts` → `ADMISION_GROUPS` | URL | ✅ | Ficha pública del programa |
-| **Estadística: Ingresantes** | `config/navigation.ts` → `ADMISION_GROUPS` | URL | ⬜ | La Declaración Pública no declara fuente para este dato |
-| **Estadística: Titulados** | `config/navigation.ts` → `ADMISION_GROUPS` | URL | ⬜ | Igual que el anterior |
+| **Estadísticas (página propia)** | `content/estadisticas.ts` + `src/pages/admision/Estadisticas.tsx` | `{ anio, porCiclo[], total, egresados, bachilleres }` | ✅ | **HECHO** (09-08-2026, `src/` autorizado): página `/admision/estadisticas` con la **Tabla 0-1 completa 2020–2026**. Estructura: 3 cifras destacadas → gráfico de matriculados por ciclo → gráfico de egresados vs. bachilleres por año → tabla de detalle. Gráficos en CSS puro (sin librerías nuevas). **Color:** dos azules validados para daltonismo y contraste; el dorado no se usa como relleno (1.98:1 sobre blanco, ilegible). El menú de Admisión lleva a las anclas de esta página |
+| ~~Estadística: Ingresantes~~ | — | — | ⬜ | **Retirado del menú**: la Tabla 0-1 no mide "ingresantes" (la columna "1ro" es matrícula de primer ciclo, no admitidos). Reponer si aparece la cifra oficial |
+| ~~Estadística: Titulados~~ | — | — | ⬜ | **Retirado del menú**: la Tabla 0-1 solo trae Grados de Bachiller; el Título Profesional es un trámite aparte (ver Académico). Reponer si aparece la cifra oficial |
 | Política de Gestión de Calidad | `config/navigation.ts` → `ADMISION_GROUPS` | URL | ✅ | Ya apuntaba a Drive |
 | **Guía del postulante** | — | — | 🚫 | Página "En Construcción" en `src/` |
 | **Resoluciones** | — | — | 🚫 | Página "En Construcción" en `src/` |
@@ -245,14 +248,17 @@ Panel lateral flotante + enlaces.
 
 # 10. Lo más urgente (pendiente)
 
-1. **Entidad acreditadora** — el sello del hero dice "Acreditada por la Entidad". El programa
-   trabaja hacia la acreditación SINEACE (carpeta SINEACE en Drive, diferida por el usuario).
-2. **Misión y visión** — vacías en el documento fuente.
-3. **Sumillas de la malla** — la malla está cargada; falta la descripción de cada curso.
-4. **7 fotos de docentes restantes** y **cursos por docente**.
-5. **Teléfono institucional** — correo y horario ya cargados; falta el teléfono con anexo.
-6. **Organigrama** y **SINEACE** — diferidos por el usuario (carpetas en Drive).
-7. **Órganos de Gobierno** y 2 comités (Currículo, Responsabilidad Social) — faltan nombres.
+1. **Entidad acreditadora** — el sello del hero sigue diciendo "Acreditada por la Entidad".
+   Es lo más visible que queda sin resolver. La carpeta SINEACE (Drive) está diferida por el usuario.
+2. **Sumillas de la malla** — la malla está cargada; falta la descripción de cada curso.
+3. **7 fotos de docentes restantes** y **cursos por docente** (`cursoPrincipal`) + condición RENACYT.
+4. **Teléfono institucional del programa** — correo y horario ya cargados. Ojo: el (044) 221321 que
+   figura en admisionunt.info es de la **Dirección de Admisión**, no del programa; no se usó.
+5. **Contenido de Investigación** — faltan proyectos y convenios (líneas y publicaciones ya cargadas).
+6. **Noticias, avisos y ambientes/laboratorios** — siguen con texto e imágenes de plantilla.
+7. **Órganos de Gobierno**, **Administrativos** y 2 comités (Currículo, Responsabilidad Social) —
+   faltan los nombres de los integrantes.
 
-> Editar `src/` está aprobado solo para Comités/Órganos de Gobierno. El resto de secciones 🚫
-> siguen "En construcción" en `src/` sin decisión de ampliar el alcance.
+> **Alcance de `src/`:** el usuario ha ido aprobando páginas puntuales — Comités, Revistas,
+> Objetivos, Estadísticas y `AutoridadCard` (mostrar foto). El resto de secciones 🚫 siguen
+> "En construcción" y requieren aprobación para cada caso.

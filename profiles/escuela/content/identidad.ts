@@ -2,31 +2,19 @@ export const mision = "Formamos personas, profesionales e investigadores, ínteg
 
 export const vision = "Al año 2030, seremos reconocidos a nivel internacional como una institución transformadora e inclusiva en el ámbito de la educación superior, con liderazgo sostenible, y firmemente comprometida con la excelencia académica, la investigación científica, responsabilidad social y ambiental.";
 
+// Fuente: propuesta curricular del programa (Vicerrectorado Académico UNT),
+// confirmada por el usuario el 05-08-2026. La fuente no trae una descripción
+// individual por valor —solo el nombre y una frase de cierre compartida sobre
+// dónde se expresan (objetivos educacionales, competencias generales, eje de
+// ética y ciudadanía, criterios de evaluación y convivencia académica)—, así
+// que `descripcion` queda vacía para no inventar texto por valor.
 export const valores = [
-  {
-    nombre: "Valor 1",
-    descripcion: "Descripción breve del primer valor institucional del programa."
-  },
-  {
-    nombre: "Valor 2",
-    descripcion: "Descripción breve del segundo valor institucional del programa."
-  },
-  {
-    nombre: "Valor 3",
-    descripcion: "Descripción breve del tercer valor institucional del programa."
-  },
-  {
-    nombre: "Valor 4",
-    descripcion: "Descripción breve del cuarto valor institucional del programa."
-  },
-  {
-    nombre: "Valor 5",
-    descripcion: "Descripción breve del quinto valor institucional del programa."
-  },
-  {
-    nombre: "Valor 6",
-    descripcion: "Descripción breve del sexto valor institucional del programa."
-  }
+  { nombre: "Integridad", descripcion: "" },
+  { nombre: "Autonomía responsable", descripcion: "" },
+  { nombre: "Tolerancia y promoción del diálogo", descripcion: "" },
+  { nombre: "Justicia y respeto por la dignidad humana", descripcion: "" },
+  { nombre: "Solidaridad y compromiso social", descripcion: "" },
+  { nombre: "Búsqueda y difusión de la verdad", descripcion: "" }
 ];
 
 export const historia = {
