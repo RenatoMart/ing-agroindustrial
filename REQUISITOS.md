@@ -97,7 +97,8 @@ Identidad que se repite en navbar, footer y buscadores.
 | Botones del hero | `config/site.ts` → `hero.ctas` | `{ label, to }` | ✅ | Rutas internas ya válidas |
 | Cifras destacadas (3) | `config/site.ts` → `cifras` | `{ numero, etiqueta, sub }` | ✅ | 830 egresados · 208 créditos · creado en 1993 |
 | Nombre y cargo del decano | `config/site.ts` → `decana` | Texto | ✅ | Dr. Raúl Benito Siche Jara |
-| **Mensaje del decano** | `config/site.ts` → `decana.mensaje` | 1 párrafo de bienvenida | ⬜ | Falta el texto real |
+| Mensaje del decano | `config/site.ts` → `decana.mensaje` | 1 párrafo de bienvenida | ✅ | **HECHO** (11-09-2026): saludo institucional real del Dr. Raúl Siche Jara |
+| Título "Bienvenida del Decano" | `src/pages/Inicio.tsx` (texto fijo) | — | ✅ | **HECHO** (11-09-2026, `src/` — corrección de una palabra): decía "de la Decana", corregido a "del Decano" para coincidir con el decano real |
 | Video de bienvenida | `config/site.ts` → `decana.video.youtubeId` | ID de YouTube (solo el ID) | ⬜ | Si se deja vacío, el reproductor no aparece |
 | Accesos rápidos | `content/home.ts` → `accesosRapidos` | `{ titulo, descripcion, icono, link }` | ✅ | Estructural, ya apunta a rutas reales |
 | **Ambientes / laboratorios** | `content/home.ts` → `ambientes` | `{ badge, titulo, descripcion, imagen, alt }` | ⬜ | Faltan nombres, descripciones y **fotos** de laboratorios |
