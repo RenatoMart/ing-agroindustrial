@@ -5,7 +5,7 @@ con el formato en que debe entregarse y su estado actual.
 
 - **Escuela activa:** Ingeniería Agroindustrial — Facultad de Ciencias Agropecuarias, UNT
 - **Perfil que se edita:** `profiles/escuela/` (**nunca** `src/`)
-- **Última actualización:** 09-08-2026
+- **Última actualización:** 11-09-2026
 
 ## Cómo leer el estado
 
@@ -130,6 +130,7 @@ Identidad que se repite en navbar, footer y buscadores.
 | **Movilidad** | `content/academico.ts` → `movilidad` | `{ institucion, tipo, descripcion, modalidad }` | ⬜ | |
 | **Convenios** | `content/investigacion.ts` → `convenios` | `{ institucion, tipo, descripcion, vigencia }` | ⬜ | |
 | Laboratorios | — | — | 🚫 | Página "En Construcción" en `src/` |
+| Bienestar (enlace del menú) | `config/navigation.ts` → NAV_LINKS (Académico › Recursos) | URL | ✅ | **HECHO** (11-09-2026): Facebook, único portal de difusión que tiene Bienestar Universitario por ahora |
 | Responsabilidad social | — | — | 🚫 | Página "En Construcción" en `src/` |
 
 ## Detalle de la malla — cargada ✅
@@ -161,14 +162,14 @@ Decisiones de mapeo aplicadas:
 | Director de escuela | `content/autoridades.ts` → `director` | `{ nombre, cargo, correo, bio, foto }` | ✅ | **Mg. Jesús Alexander Sánchez González** (31-07-2026), con foto oficial. Bio armada con sus grados del escalafón. Correo: el institucional del programa (no se tiene uno personal) |
 | Director de departamento | `content/autoridades.ts` → `coordinadores[0]` | `{ nombre, cargo, correo, foto }` | ⚠️ | **Dr. Viviano Paulino Ninaquispe Zare** (31-07-2026), con foto oficial. Se muestra en la misma página `/organizacion/direccion` (el menú ya tiene esa entrada), pero **cae bajo el título "Coordinaciones"**, que está fijo en `src/pages/autoridades/Direccion.tsx`. Cambiar ese título requiere tocar `src/` |
 | **Coordinadores** | `content/autoridades.ts` → `coordinadores` | `{ nombre, cargo, correo }` | ⬜ | No se ha proporcionado la relación (siguen 3 tarjetas de plantilla) |
-| Docentes: nombre | `content/docentes.ts` → `nombre` | Texto | ✅ | 16 docentes |
-| Docentes: grado | `content/docentes.ts` → `grado` | "Doctor" / "Doctora" / "Magíster" | ✅ | Del escalafón UNT |
+| Docentes: nombre | `content/docentes.ts` → `nombre` | Texto | ✅ | **14 docentes** (11-09-2026: se retiraron Vegas Niño, Salvador Rodríguez, Campos Vásquez y Sisniegas Gálvez; se incorporaron Víctor Vásquez Villalobos y Gregorio Mayer Ascón Dionicio) |
+| Docentes: grado | `content/docentes.ts` → `grado` | "Doctor" / "Doctora" / "Magíster" / "Profesor" | ✅ | Del escalafón UNT para los 9 con foto real. **Los 4 sin foto ni grado verificado** (Vásquez Villalobos, Ascón Dionicio, Rodríguez Salinas, Huaccha Cabrera) muestran **"Profesor"** genérico por indicación del usuario (11-09-2026); a Rodríguez Salinas y Huaccha Cabrera se les reemplazó su "Magíster" verificado por este genérico |
 | Docentes: departamento | `content/docentes.ts` → `departamento` | Texto | ✅ | Todos en Ciencias Agroindustriales |
-| Docentes: condición | `content/docentes.ts` → `condicion` | "Nombrado" / "Contratado" | ✅ | 14 nombrados · 2 contratados |
-| Docentes: especialidades | `content/docentes.ts` → `especialidades` | Lista de textos | ✅ | Derivadas de sus grados del escalafón |
+| Docentes: condición | `content/docentes.ts` → `condicion` | "Nombrado" / "Contratado" | ⚠️ | 12 con condición confirmada del escalafón. Vásquez Villalobos y Ascón Dionicio: sin dato (no están en el escalafón consultado) |
+| Docentes: especialidades | `content/docentes.ts` → `especialidades` | Lista de textos | ✅ | Derivadas del escalafón (9) o de sus líneas de investigación reales (Vásquez Villalobos, Ascón Dionicio) |
 | **Docentes: curso principal** | `content/docentes.ts` → `cursoPrincipal` | Texto | ⬜ | **Falta la asignación de cursos por docente.** Hoy va vacío y el frente de la tarjeta no muestra curso |
 | **Docentes: investigador / RENACYT** | `content/docentes.ts` → `investigador`, `categoriaInvestigacion` | `true/false` + "RENACYT · Nivel X" | ⬜ | Falta saber quién es investigador. Mientras todos sean `false`, el filtro "Investigadores" no aparece |
-| **Docentes: fotos** | `content/docentes.ts` → `foto` + `assets/personas/` | Imagen vertical (~3:4), `.webp` | ⚠️ | **9 de 16 con foto oficial** (descargadas de Drive y verificadas contra la referencia): Ninaquispe, Siche, Zavaleta, Barraza, Sánchez, Linares, Solano, Rojas Naccha, Rojas Padilla. **Faltan 7** (no están en la carpeta DOCENTES): Rodríguez Salinas, Huaccha, Vegas, Salvador, Gómez, Campos, Sisniegas |
+| **Docentes: fotos** | `content/docentes.ts` → `foto` + `assets/personas/` | Imagen vertical (~3:4), `.webp` | ⚠️ | **9 de 14 con foto oficial**: Ninaquispe, Siche, Zavaleta, Barraza, Sánchez, Linares, Solano, Rojas Naccha, Rojas Padilla. **Faltan 5**: Gómez Escobedo, Rodríguez Salinas, Huaccha Cabrera, Vásquez Villalobos, Ascón Dionicio |
 | Organigrama (imagen) | `assets/organigrama/mapa-procesos.png` | PNG (lo carga un `<img>`, **no admite PDF**) | ✅ | **Organigrama real de la Escuela** (09-08-2026): convertido del PDF del usuario a PNG 4000×2250 (200 dpi, paleta indexada, 186 KB). Muestra Dirección de Escuela → Secretaría · Comités (5) · Sala de Docentes · Laboratorios (8) |
 | `organigrama` (datos) | `content/autoridades.ts` → `organigrama` | `{ nombre, cargo, hijos[] }` | ⬜ | Sigue con la estructura genérica del Estatuto UNT. **Hoy ninguna página lo usa** (la de Organigrama muestra la imagen); alimentaría el componente `OrganigramaFlow`, que está sin montar |
 | **Comités** | `content/comites.ts` + `src/pages/organizacion/Comites.tsx` | Cards de miembros `{ nombre, rol, grado, foto }` | ⚠️ | **HECHO** (4 de 6 comités): Calidad (Solano), Tutoría y Nivelación, Seguimiento al Egresado, Ciencia y Tecnología — con integrantes de la R.D. 503-2026. **Pendientes**: Comité Técnico de Currículo y Comité de Responsabilidad Social (sin datos → siguen "En construcción"). Fotos: docentes con foto se reutilizan; estudiantes con silueta |
@@ -199,6 +200,7 @@ Panel lateral flotante + enlaces.
 | ~~Estadística: Ingresantes~~ | — | — | ⬜ | **Retirado del menú**: la Tabla 0-1 no mide "ingresantes" (la columna "1ro" es matrícula de primer ciclo, no admitidos). Reponer si aparece la cifra oficial |
 | ~~Estadística: Titulados~~ | — | — | ⬜ | **Retirado del menú**: la Tabla 0-1 solo trae Grados de Bachiller; el Título Profesional es un trámite aparte (ver Académico). Reponer si aparece la cifra oficial |
 | Política de Gestión de Calidad | `config/navigation.ts` → `ADMISION_GROUPS` | URL | ✅ | Ya apuntaba a Drive |
+| Directiva de Integridad Académica | `config/navigation.ts` → `ADMISION_GROUPS` (Documentos) + `public/` | PDF | ✅ | **HECHO** (11-09-2026): R.V.A. N° 015-2026-VAC/UNT. PDF alojado en `public/Directiva_Integridad_Academica_UNT.pdf` (6 MB) y enlazado junto a Resoluciones y Política de Gestión de Calidad |
 | **Guía del postulante** | — | — | 🚫 | Página "En Construcción" en `src/` |
 | **Resoluciones** | — | — | 🚫 | Página "En Construcción" en `src/` |
 
@@ -244,7 +246,7 @@ Panel lateral flotante + enlaces.
 | `personas/*.webp` (fotos de personas) | Docentes · Dirección · Comités | ⚠️ | **9 cargadas** en la carpeta compartida `assets/personas/`. Faltan 7 docentes (ver sección Organización) |
 | Foto del director | Página Dirección | ✅ | Sánchez (escuela) y Ninaquispe (departamento), en `assets/personas/` |
 | Imágenes de ambientes | Inicio | ⬜ | Horizontal. La carpeta LABORATORIOS de Drive está vacía |
-| `organigrama/mapa-procesos.png` | Estructura organizacional | ⚠️ | Confirmar si corresponde a Agroindustrial |
+| `organigrama/mapa-procesos.png` | Estructura organizacional | ✅ | Organigrama real de la Escuela (09-08-2026), ver detalle en sección 5 |
 
 # 10. Lo más urgente (pendiente)
 

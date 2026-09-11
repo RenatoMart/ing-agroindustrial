@@ -174,7 +174,7 @@ export const docentes = [
   },
   {
     nombre: "Walter Felipe Rodríguez Salinas",
-    grado: "Magíster",
+    grado: "Profesor",
     departamento: "Departamento Académico de Ciencias Agroindustriales",
     cursoPrincipal: "",
     especialidades: [
@@ -188,7 +188,7 @@ export const docentes = [
   },
   {
     nombre: "Kyara Yuriko Huaccha Cabrera",
-    grado: "Magíster",
+    grado: "Profesor",
     departamento: "Departamento Académico de Ciencias Agroindustriales",
     cursoPrincipal: "",
     especialidades: [
@@ -201,35 +201,36 @@ export const docentes = [
     condicion: "Contratado"
   },
   {
-    nombre: "Rodolfo Moisés Vegas Niño",
-    grado: "Doctor",
+    nombre: "Víctor Javier Vásquez Villalobos",
+    grado: "Profesor",
     departamento: "Departamento Académico de Ciencias Agroindustriales",
     cursoPrincipal: "",
+    // Especialidades tomadas de sus líneas de investigación reales (content/investigacion.ts).
     especialidades: [
-      "Doctor en Ingeniería Química — Universidad de Vigo (España)",
-      "Maestría en Ciencias, mención Tecnología de Alimentos — UNT",
-      "Segunda Especialidad Profesional en Gestión de la Calidad e Inocuidad Alimentaria — UNT",
-      "Ingeniero Agroindustrial — UNT"
+      "Biotecnología Industrial",
+      "Bioquímica y Biología Molecular",
+      "Biología Celular y Microbiología",
+      "Automatización y Sistemas de Control"
     ],
     foto: null,
     investigador: false,
     categoriaInvestigacion: null,
-    condicion: "Nombrado"
+    condicion: null
   },
   {
-    nombre: "Daniel José Salvador Rodríguez",
-    grado: "Doctor",
+    nombre: "Gregorio Mayer Ascón Dionicio",
+    grado: "Profesor",
     departamento: "Departamento Académico de Ciencias Agroindustriales",
     cursoPrincipal: "",
+    // Especialidades tomadas de sus líneas de investigación reales (content/investigacion.ts).
     especialidades: [
-      "Doctor en Ciencia de los Alimentos — Universitat Autònoma de Barcelona (España)",
-      "Maestría en Ciencias, mención Tecnología de Alimentos — UNT",
-      "Ingeniero Agroindustrial — UNT"
+      "Otras Ingenierías y Tecnologías",
+      "Alimentos y Bebidas"
     ],
     foto: null,
     investigador: false,
     categoriaInvestigacion: null,
-    condicion: "Nombrado"
+    condicion: null
   },
   {
     nombre: "Freddy Waldir Gómez Escobedo",
@@ -238,34 +239,6 @@ export const docentes = [
     cursoPrincipal: "",
     especialidades: [
       "Maestría en Ciencias, mención Sistemas Integrados de Gestión de la Calidad, Ambiente, Seguridad y Responsabilidad Social Corporativa — UNT",
-      "Ingeniero Agroindustrial — UNT"
-    ],
-    foto: null,
-    investigador: false,
-    categoriaInvestigacion: null,
-    condicion: "Nombrado"
-  },
-  {
-    nombre: "Nilson Deonil Campos Vásquez",
-    grado: "Magíster",
-    departamento: "Departamento Académico de Ciencias Agroindustriales",
-    cursoPrincipal: "",
-    especialidades: [
-      "Maestría en Ciencias, mención Sistemas Integrados de Gestión de la Calidad, Ambiente, Seguridad y Responsabilidad Social Corporativa — UNT",
-      "Ingeniero Agroindustrial — UNT"
-    ],
-    foto: null,
-    investigador: false,
-    categoriaInvestigacion: null,
-    condicion: "Nombrado"
-  },
-  {
-    nombre: "Paul Alexis Sisniegas Gálvez",
-    grado: "Magíster",
-    departamento: "Departamento Académico de Ciencias Agroindustriales",
-    cursoPrincipal: "",
-    especialidades: [
-      "Maestría en Ciencias, mención Gestión de Riesgos Ambientales y de Seguridad en las Empresas — UNT",
       "Ingeniero Agroindustrial — UNT"
     ],
     foto: null,

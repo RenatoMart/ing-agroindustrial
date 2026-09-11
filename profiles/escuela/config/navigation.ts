@@ -75,7 +75,8 @@ export const NAV_LINKS: NavSection[] = [
         label: 'Recursos',
         items: [
           { name: 'Laboratorios', path: '/academico/laboratorios' },
-          { name: 'Bienestar', path: '#', external: true },
+          // Único portal que tiene Bienestar Universitario por ahora (difusión y comunicación).
+          { name: 'Bienestar', path: 'https://web.facebook.com/profile.php?id=100063802435468', external: true },
         ],
       },
       {
@@ -213,6 +214,12 @@ export const ADMISION_GROUPS: NavGroup[] = [
         external: true,
       },
       { name: 'Gestión de la Formación en Pregrado', path: '/admision/gestion-formacion-pregrado' },
+      {
+        // R.V.A. N° 015-2026-VAC/UNT. PDF alojado en profiles/escuela/../../public/.
+        name: 'Directiva de Integridad Académica',
+        path: `${import.meta.env.BASE_URL}Directiva_Integridad_Academica_UNT.pdf`,
+        external: true,
+      },
     ],
   },
 ];
