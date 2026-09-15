@@ -40,7 +40,7 @@ import fotoRojasPadilla from '../assets/personas/rojas-padilla.webp';
 export const docentes = [
   {
     nombre: "Raúl Benito Siche Jara",
-    grado: "Doctor",
+    grado: "Profesor",
     departamento: "Departamento Académico de Ciencias Agroindustriales",
     cursoPrincipal: "",
     especialidades: [
@@ -55,7 +55,7 @@ export const docentes = [
   },
   {
     nombre: "Carmen Rosa Rojas Padilla",
-    grado: "Doctora",
+    grado: "Profesor",
     departamento: "Departamento Académico de Ciencias Agroindustriales",
     cursoPrincipal: "",
     especialidades: [
@@ -70,7 +70,7 @@ export const docentes = [
   },
   {
     nombre: "Guillermo Alberto Linares Luján",
-    grado: "Doctor",
+    grado: "Profesor",
     departamento: "Departamento Académico de Ciencias Agroindustriales",
     cursoPrincipal: "",
     especialidades: [
@@ -85,7 +85,7 @@ export const docentes = [
   },
   {
     nombre: "Viviano Paulino Ninaquispe Zare",
-    grado: "Doctor",
+    grado: "Profesor",
     departamento: "Departamento Académico de Ciencias Agroindustriales",
     cursoPrincipal: "",
     especialidades: [
@@ -100,7 +100,7 @@ export const docentes = [
   },
   {
     nombre: "Julio César Rojas Naccha",
-    grado: "Magíster",
+    grado: "Profesor",
     departamento: "Departamento Académico de Ciencias Agroindustriales",
     cursoPrincipal: "",
     especialidades: [
@@ -114,7 +114,7 @@ export const docentes = [
   },
   {
     nombre: "Gabriela del Carmen Barraza Jáuregui",
-    grado: "Doctora",
+    grado: "Profesor",
     departamento: "Departamento Académico de Ciencias Agroindustriales",
     cursoPrincipal: "",
     especialidades: [
@@ -129,7 +129,7 @@ export const docentes = [
   },
   {
     nombre: "Jesús Alexander Sánchez González",
-    grado: "Magíster",
+    grado: "Profesor",
     departamento: "Departamento Académico de Ciencias Agroindustriales",
     cursoPrincipal: "",
     especialidades: [
@@ -144,7 +144,7 @@ export const docentes = [
   },
   {
     nombre: "Karla Margielly Zavaleta Guzmán",
-    grado: "Magíster",
+    grado: "Profesor",
     departamento: "Departamento Académico de Ciencias Agroindustriales",
     cursoPrincipal: "",
     especialidades: [
@@ -158,7 +158,7 @@ export const docentes = [
   },
   {
     nombre: "Juan Carlos Solano Gaviño",
-    grado: "Doctor",
+    grado: "Profesor",
     departamento: "Departamento Académico de Ciencias Agroindustriales",
     cursoPrincipal: "",
     especialidades: [
@@ -232,18 +232,4 @@ export const docentes = [
     categoriaInvestigacion: null,
     condicion: null
   },
-  {
-    nombre: "Freddy Waldir Gómez Escobedo",
-    grado: "Magíster",
-    departamento: "Departamento Académico de Ciencias Agroindustriales",
-    cursoPrincipal: "",
-    especialidades: [
-      "Maestría en Ciencias, mención Sistemas Integrados de Gestión de la Calidad, Ambiente, Seguridad y Responsabilidad Social Corporativa — UNT",
-      "Ingeniero Agroindustrial — UNT"
-    ],
-    foto: null,
-    investigador: false,
-    categoriaInvestigacion: null,
-    condicion: "Nombrado"
-  }
 ];
