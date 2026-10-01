@@ -1,5 +1,6 @@
 import fotoNinaquispe from '../assets/personas/ninaquispe-zare.webp';
 import fotoSanchez from '../assets/personas/sanchez-gonzalez.webp';
+import fotoSiche from '../assets/personas/siche-jara.webp';
 
 export const director = {
   nombre: "Mg. Jesús Alexander Sánchez González",
@@ -9,16 +10,26 @@ export const director = {
   foto: fotoSanchez // Foto oficial (carpeta compartida assets/personas/).
 };
 
-// El Director del Departamento Académico se muestra en esta misma página (el menú
-// tiene la entrada "Director de departamento" → /organizacion/direccion). La página
-// solo expone `director` y `coordinadores`, así que va como primera tarjeta de esta lista.
+// Director del Departamento Académico: tiene su propia ancla en el menú
+// ("Director de departamento" → /organizacion/direccion#departamento), separada
+// de la Dirección de Escuela.
+export const directorDepartamento = {
+  nombre: "Dr. Viviano Paulino Ninaquispe Zare",
+  cargo: "Director del Departamento Académico de Ciencias Agroindustriales",
+  correo: "vninaquispe@unitru.edu.pe",
+  foto: fotoNinaquispe
+};
+
+// Decano y coordinadores del programa, que se muestran junto al Director de
+// Escuela bajo "Coordinaciones".
 // PENDIENTE: no se ha proporcionado la relación de coordinadores del programa.
 export const coordinadores = [
   {
-    nombre: "Dr. Viviano Paulino Ninaquispe Zare",
-    cargo: "Director del Departamento Académico de Ciencias Agroindustriales",
-    correo: "vninaquispe@unitru.edu.pe",
-    foto: fotoNinaquispe
+    nombre: "Dr. Raúl Benito Siche Jara",
+    cargo: "Decano de la Facultad de Ciencias Agropecuarias",
+    // PENDIENTE: falta el correo institucional del Decanato (no inventado).
+    correo: "",
+    foto: fotoSiche
   },
   {
     nombre: "Nombre del Coordinador(a)",
@@ -34,6 +45,17 @@ export const coordinadores = [
     nombre: "Nombre del Coordinador(a)",
     cargo: "Coordinador(a) de Prácticas Preprofesionales",
     correo: "coordinacion.practicas@universidad.edu.pe"
+  }
+];
+
+// Consejo de Facultad: el Decano lo preside por Estatuto. Los demás miembros
+// (consejeros docentes, estudiantiles) aún no se han proporcionado.
+export const consejoFacultad = [
+  {
+    nombre: "Dr. Raúl Benito Siche Jara",
+    rol: "Presidente",
+    cargo: "Decano de la Facultad de Ciencias Agropecuarias",
+    foto: fotoSiche
   }
 ];
 

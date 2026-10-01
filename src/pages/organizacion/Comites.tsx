@@ -12,38 +12,34 @@ import { comites, type ComiteMiembro } from '@profile/content/comites';
  * representantes estudiantiles); los comités aún sin datos muestran el aviso
  * "En construcción". Todo el contenido vive en el perfil (@profile/content/comites).
  */
+// Mismo tratamiento de foto que DocenteCard (foto a todo el ancho, marco 4:5
+// con borde azul institucional), para que las tarjetas de comités y de
+// docentes se vean consistentes.
 function MiembroCard({ miembro }: { miembro: ComiteMiembro }) {
   return (
-    <div className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden flex flex-col">
-      {/* Franja superior con avatar */}
-      <div className="relative bg-primary pt-6 pb-10 flex justify-center items-end">
-        <div
-          className="absolute inset-0 opacity-[0.06]"
-          style={{ backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)', backgroundSize: '16px 16px' }}
-        />
-        <div className="relative w-24 h-28 bg-white overflow-hidden border-4 border-white/20 shadow-xl rounded-sm">
-          {miembro.foto ? (
-            <img
-              src={miembro.foto}
-              alt={miembro.nombre}
-              loading="lazy"
-              className="w-full h-full object-cover"
-              style={{ objectPosition: miembro.fotoPosicion ?? 'center 25%' }}
-            />
-          ) : (
-            <div className="w-full h-full bg-gray-100 flex items-end justify-center">
-              <User className="w-20 h-20 text-gray-300 -mb-2" />
-            </div>
-          )}
-        </div>
-        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/60 to-transparent" />
+    <div className="h-full bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden flex flex-col">
+      <div className="relative aspect-[4/5] shrink-0 overflow-hidden rounded-t-2xl border-2 border-primary bg-primary">
+        {miembro.foto ? (
+          <img
+            src={miembro.foto}
+            alt={miembro.nombre}
+            loading="lazy"
+            className="w-full h-full object-cover"
+            style={{ objectPosition: miembro.fotoPosicion ?? 'center 20%' }}
+          />
+        ) : (
+          <div className="w-full h-full bg-gray-100 flex items-end justify-center">
+            <User className="w-1/2 h-auto text-gray-300 -mb-2" />
+          </div>
+        )}
       </div>
 
       {/* Rol · nombre */}
-      <div className="flex flex-col flex-1 p-5 text-center justify-center">
-        <span className="inline-flex items-center gap-1 self-center rounded-full bg-gold/15 text-gold-ink text-[10px] font-black uppercase tracking-wider px-2.5 py-0.5 mb-2">
+      <div className="flex flex-col flex-1 px-5 pt-5 pb-4 text-center justify-start">
+        <span className="inline-flex items-center gap-1 self-center text-gold text-[10px] font-black uppercase tracking-[0.08em]">
           <BadgeCheck className="w-3 h-3" aria-hidden="true" /> {miembro.rol}
         </span>
+        <div className="border-t border-gray-100 my-3" />
         <h4 className="font-display font-bold text-primary text-sm leading-tight">
           {miembro.grado ? `${miembro.grado} ` : ''}{miembro.nombre}
         </h4>

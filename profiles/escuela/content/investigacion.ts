@@ -138,11 +138,75 @@ export const revistas: Revista[] = [
   }
 ];
 
+// Fuente: "Convenios Internacionales Actualizados" y "Convenios Nacionales
+// Actualizados" de la Oficina de Relaciones Nacionales e Internacionales (ORNI),
+// UNT (01-10-2026). Esos registros completos tienen ~170 convenios de TODA la
+// universidad (Medicina, Derecho, Ingeniería, etc.); aquí solo se listan los que
+// están directamente vinculados a la Facultad de Ciencias Agropecuarias o a
+// docentes de Ingeniería Agroindustrial como coordinador responsable. El
+// registro completo de la ORNI se enlaza al pie de la página (botón "Ver todos
+// los convenios de la UNT").
 export const convenios = [
   {
-    institucion: "Nombre de la institución aliada",
-    tipo: "Interinstitucional",
-    descripcion: "Descripción breve del convenio: con quién y para qué.",
-    vigencia: "2022 - 2027"
+    institucion: "Universidad de Campinas",
+    tipo: "Convenio Internacional · Brasil",
+    descripcion: "Acuerdo de cooperación académica internacional. Coordinador: Dr. Raúl Benito Siche Jara (docente del programa).",
+    vigencia: "Desde 21/05/2020 · Indefinido"
+  },
+  {
+    institucion: "Universidad de Los Lagos",
+    tipo: "Convenio Internacional · Chile",
+    descripcion: "Convenio Marco de Cooperación. Coordinador: Dr. Raúl Benito Siche Jara (docente del programa).",
+    vigencia: "Desde 11/11/2013 · Indefinido"
+  },
+  {
+    institucion: "Universidad Federal de Viçosa (UFV)",
+    tipo: "Convenio Internacional · Brasil",
+    descripcion: "Memorándum de entendimiento. Coordinador: Dr. Víctor Javier Vásquez Villalobos (docente del programa).",
+    vigencia: "29/09/2021 – 29/09/2026"
+  },
+  {
+    institucion: "Universidad de Jos, Estado de Plateau",
+    tipo: "Convenio Internacional · Nigeria",
+    descripcion: "Memorando de Entendimiento. Coordinador: Dr. Gilmar Mendoza Ordoñez, docente de la Facultad de Ciencias Agropecuarias.",
+    vigencia: "22/11/2023 – 22/12/2028"
+  },
+  {
+    institucion: "Universidad Nacional del Litoral",
+    tipo: "Convenio Internacional · Argentina",
+    descripcion: "Carta de Intención con la Escuela Profesional de Zootecnia de la UNT. Coordinador: Dr. Gilmar Edgardo Mendoza Ordoñez.",
+    vigencia: "23/03/2022 – 23/03/2027"
+  },
+  {
+    institucion: "Universidad Católica de Santa María",
+    tipo: "Convenio Nacional",
+    descripcion: "Convenio Marco de Cooperación Interinstitucional. Coordinador: Dr. Víctor Javier Vásquez Villalobos, en su momento Decano de la Facultad de Ciencias Agropecuarias.",
+    vigencia: "03/10/2023 – 03/10/2027"
+  },
+  {
+    institucion: "Proyecto Especial Chavimochic",
+    tipo: "Convenio Nacional",
+    descripcion: "Convenio de Colaboración Interinstitucional. Coordinador: Decano de la Facultad de Ciencias Agropecuarias. Chavimochic es la obra que impulsó la creación del programa en 1993.",
+    vigencia: "04/09/2025 – 04/09/2028"
+  },
+  {
+    institucion: "Asociación Peruana de Avicultura",
+    tipo: "Convenio Nacional",
+    descripcion: "Convenio Marco de Cooperación Interinstitucional. Coordinadora: Directora de la Escuela Profesional de Ingeniería Zootecnista (misma Facultad).",
+    vigencia: "21/05/2025 – 21/05/2030"
   }
+];
+
+// Registro oficial completo de convenios de la UNT (PDF alojados en public/).
+export const registroConveniosUNT = [
+  {
+    titulo: "Convenios Internacionales de la UNT",
+    detalle: "Registro completo, actualizado a septiembre 2026 (ORNI)",
+    url: `${import.meta.env.BASE_URL}Convenios_Internacionales_UNT_2026.pdf`,
+  },
+  {
+    titulo: "Convenios Nacionales de la UNT",
+    detalle: "Registro completo, actualizado 2026 (ORNI)",
+    url: `${import.meta.env.BASE_URL}Convenios_Nacionales_UNT_2026.pdf`,
+  },
 ];

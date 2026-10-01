@@ -36,6 +36,9 @@ import fotoLinares from '../assets/personas/linares-lujan.webp';
 import fotoSolano from '../assets/personas/solano-gavino.webp';
 import fotoRojasNaccha from '../assets/personas/rojas-naccha.webp';
 import fotoRojasPadilla from '../assets/personas/rojas-padilla.webp';
+import fotoRodriguezSalinas from '../assets/personas/rodriguez-salinas.webp';
+import fotoHuacchaCabrera from '../assets/personas/huaccha-cabrera.webp';
+import fotoAsconDionicio from '../assets/personas/ascon-dionicio.webp';
 
 export const docentes = [
   {
@@ -173,34 +176,6 @@ export const docentes = [
     condicion: "Nombrado"
   },
   {
-    nombre: "Walter Felipe Rodríguez Salinas",
-    grado: "Profesor",
-    departamento: "Departamento Académico de Ciencias Agroindustriales",
-    cursoPrincipal: "",
-    especialidades: [
-      "Maestro en Administración de Empresas — Universidad Peruana de Ciencias Aplicadas",
-      "Ingeniero Agroindustrial — Universidad Nacional de San Martín"
-    ],
-    foto: null,
-    investigador: false,
-    categoriaInvestigacion: null,
-    condicion: "Contratado"
-  },
-  {
-    nombre: "Kyara Yuriko Huaccha Cabrera",
-    grado: "Profesor",
-    departamento: "Departamento Académico de Ciencias Agroindustriales",
-    cursoPrincipal: "",
-    especialidades: [
-      "Maestría en Ciencias de Ingeniería de Alimentos — Universidade de São Paulo (Brasil)",
-      "Ingeniera Agroindustrial — UNT"
-    ],
-    foto: null,
-    investigador: false,
-    categoriaInvestigacion: null,
-    condicion: "Contratado"
-  },
-  {
     nombre: "Víctor Javier Vásquez Villalobos",
     grado: "Profesor",
     departamento: "Departamento Académico de Ciencias Agroindustriales",
@@ -227,9 +202,37 @@ export const docentes = [
       "Otras Ingenierías y Tecnologías",
       "Alimentos y Bebidas"
     ],
-    foto: null,
+    foto: fotoAsconDionicio,
     investigador: false,
     categoriaInvestigacion: null,
     condicion: null
+  },
+  {
+    nombre: "Walter Felipe Rodríguez Salinas",
+    grado: "Profesor",
+    departamento: "Departamento Académico de Ciencias Agroindustriales",
+    cursoPrincipal: "",
+    especialidades: [
+      "Maestro en Administración de Empresas — Universidad Peruana de Ciencias Aplicadas",
+      "Ingeniero Agroindustrial — Universidad Nacional de San Martín"
+    ],
+    foto: fotoRodriguezSalinas,
+    investigador: false,
+    categoriaInvestigacion: null,
+    condicion: "Contratado"
+  },
+  {
+    nombre: "Kyara Yuriko Huaccha Cabrera",
+    grado: "Profesor",
+    departamento: "Departamento Académico de Ciencias Agroindustriales",
+    cursoPrincipal: "",
+    especialidades: [
+      "Maestría en Ciencias de Ingeniería de Alimentos — Universidade de São Paulo (Brasil)",
+      "Ingeniera Agroindustrial — UNT"
+    ],
+    foto: fotoHuacchaCabrera,
+    investigador: false,
+    categoriaInvestigacion: null,
+    condicion: "Contratado"
   },
 ];

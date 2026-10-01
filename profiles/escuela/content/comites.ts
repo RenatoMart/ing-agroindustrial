@@ -20,6 +20,10 @@ import fotoLinares from '../assets/personas/linares-lujan.webp';
 import fotoSolano from '../assets/personas/solano-gavino.webp';
 import fotoRojasNaccha from '../assets/personas/rojas-naccha.webp';
 import fotoRojasPadilla from '../assets/personas/rojas-padilla.webp';
+import fotoSanchez from '../assets/personas/sanchez-gonzalez.webp';
+import fotoZavaleta from '../assets/personas/zavaleta-guzman.webp';
+import fotoAsconDionicio from '../assets/personas/ascon-dionicio.webp';
+import fotoCardenasMiranda from '../assets/personas/cardenas-miranda.webp';
 
 export interface ComiteMiembro {
   nombre: string;
@@ -48,12 +52,18 @@ export const comites: Comite[] = [
     descripcion: 'Responsable de la autoevaluación y la acreditación de la calidad del programa.',
     miembros: [
       { nombre: 'Juan Carlos Solano Gaviño', grado: 'Dr.', rol: 'Presidente', foto: fotoSolano },
+      { nombre: 'Karla Margielly Zavaleta Guzmán', grado: 'Profesor', rol: 'Miembro', foto: fotoZavaleta },
     ],
   },
   {
     id: 'curriculo',
     titulo: 'Comité Técnico de Currículo',
-    miembros: [],
+    miembros: [
+      { nombre: 'Jesús Alexander Sánchez González', grado: 'Profesor', rol: 'Miembro', foto: fotoSanchez },
+      { nombre: 'Juan Carlos Solano Gaviño', grado: 'Dr.', rol: 'Miembro', foto: fotoSolano },
+      { nombre: 'Karla Margielly Zavaleta Guzmán', grado: 'Profesor', rol: 'Miembro', foto: fotoZavaleta },
+      { nombre: 'Ruth Noemí Cárdenas Miranda', rol: 'Secretaria', foto: fotoCardenasMiranda },
+    ],
   },
   {
     id: 'tutoria',
@@ -63,7 +73,7 @@ export const comites: Comite[] = [
     miembros: [
       { nombre: 'Viviano Paulino Ninaquispe Zare', grado: 'Dr.', rol: 'Responsable', foto: fotoNinaquispe, fotoPosicion: '50% 40%' },
       { nombre: 'Julio César Rojas Naccha', grado: 'MSc.', rol: 'Miembro', foto: fotoRojasNaccha, fotoPosicion: '50% 40%' },
-      { nombre: 'Gregorio Mayer Ascón Dionicio', grado: 'Ing.', rol: 'Miembro', foto: null },
+      { nombre: 'Gregorio Mayer Ascón Dionicio', grado: 'Profesor', rol: 'Miembro', foto: fotoAsconDionicio },
       { nombre: 'Madeleine Darline Martinez Llempen', rol: 'Estudiante', foto: null },
       { nombre: 'Esteban Adrián Benites Carranza', rol: 'Estudiante', foto: null },
     ],

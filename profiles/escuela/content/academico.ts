@@ -119,8 +119,80 @@ export const tramites = [
   }
 ];
 
-// Oportunidades de movilidad e intercambio (estudiantil y docente).
-// Misma forma que `convenios`: se muestran como tarjetas.
+// Procedimiento general de Movilidad y Becas de la UNT (aplica a todas las
+// carreras de pregrado). Fuente: "PROCEDIMIENTO PARA LA MOVILIDAD Y BECAS"
+// (M01.01.03.03-PR-001, V.2, aprobado 6/02/2024), documento oficial del
+// Sistema de Gestión de la Calidad de la UNT.
+// Documentos normativos oficiales de la UNT sobre movilidad académica y
+// convenios (PDF alojados en public/). El Reglamento de Convenios (RCU
+// 559-2024) establece las pautas para la suscripción de convenios de
+// cooperación, pero —igual que el procedimiento— no nombra instituciones
+// específicas con convenio ya firmado.
+export const documentosMovilidad = [
+  {
+    titulo: "Procedimiento para la Movilidad y Becas",
+    detalle: "M01.01.03.03-PR-001, V.2 (6/02/2024)",
+    url: `${import.meta.env.BASE_URL}Procedimiento_Movilidad_Becas.pdf`,
+  },
+  {
+    titulo: "Reglamento de Movilidad Académica para Docentes",
+    detalle: "R.C.U. N° 0246-2023/UNT",
+    url: `${import.meta.env.BASE_URL}Reglamento_Movilidad_Docente_RCU_246-2023.pdf`,
+  },
+  {
+    titulo: "Reglamento del Programa de Movilidad Académica Estudiantil (PROMOVE-UNT)",
+    detalle: "R.C.U. N° 0345-2024/UNT",
+    url: `${import.meta.env.BASE_URL}Reglamento_Movilidad_Estudiantil_PROMOVE_RCU_345-2024.pdf`,
+  },
+  {
+    titulo: "Reglamento de Convenios Nacionales e Internacionales de Movilidad Académica y Proyectos de Investigación",
+    detalle: "R.C.U. N° 0559-2024/UNT",
+    url: `${import.meta.env.BASE_URL}Reglamento_Convenios_RCU_559-2024.pdf`,
+  },
+];
+
+export const procedimientoMovilidad = {
+  objetivo: "Establecer los lineamientos para la ejecución de los convenios con universidades/instituciones públicas y privadas, nacionales e internacionales, para la movilidad de estudiantes, docentes y personal administrativo, así como para el intercambio de experiencias y el otorgamiento de becas.",
+  alcance: "Para todas las carreras profesionales de pregrado de la UNT.",
+  responsable: "Oficina de Relaciones Nacionales e Internacionales (ORNI)",
+  // Fases resumidas del flujo oficial (37 actividades en el documento fuente).
+  fases: [
+    {
+      titulo: "Convocatoria",
+      descripcion: "ORNI recibe y difunde las convocatorias de universidades e instituciones, mediante webinars, charlas y redes sociales."
+    },
+    {
+      titulo: "Postulación",
+      descripcion: "El estudiante o docente presenta su expediente a la Facultad y lo deriva a ORNI, que lo tramita ante la institución de destino."
+    },
+    {
+      titulo: "Aceptación y matrícula",
+      descripcion: "Si es aceptado, se registra en el Sistema de Movilidad Académica (SIMOVAC) y se matricula en la UNT y en la institución de destino (con exoneración si hay convenio)."
+    },
+    {
+      titulo: "Resultados y convalidación",
+      descripcion: "Al finalizar, se presenta el certificado de estudios para la convalidación de experiencias curriculares y el registro de notas."
+    }
+  ],
+  // Formatos oficiales que genera el procedimiento.
+  formatos: [
+    "Registro de Postulantes a Movilidad Académica (Estudiantes y Docentes)",
+    "Registro de Postulantes Aceptados para realizar Movilidad Académica",
+    "Registro de Resultados de Movilidad Académica"
+  ],
+  baseNormativa: [
+    "Ley Universitaria N° 30220",
+    "Estatuto Reformado de la UNT",
+    "Reglamento del Sistema de Movilidad Académica de la UNT (SIMOVAC)",
+    "Reglamento de Convenios Nacionales e Internacionales de intercambio académico",
+    "Reglamento del Programa de Movilidad Estudiantil de la Red Peruana de Universidades (PROMOERPU)"
+  ]
+};
+
+// Oportunidades de movilidad e intercambio (estudiantil y docente): convenios
+// específicos con universidades de destino. El documento oficial trae el
+// procedimiento general (arriba), pero no nombra convenios concretos.
+// PENDIENTE: falta la relación real de universidades/instituciones con convenio activo.
 export const movilidad = [
   {
     institucion: "Universidad o institución de destino",
