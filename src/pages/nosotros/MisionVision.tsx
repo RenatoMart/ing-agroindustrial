@@ -2,32 +2,33 @@ import React from 'react';
 import { SectionTitle } from '../../components/ui/SectionTitle';
 import MisionCard from '../../components/identidad/MisionCard';
 import ValorItem from '../../components/identidad/ValorItem';
-import { mision, vision, valores } from '@profile/content/identidad';
+import { mision, vision, misionPrograma, visionPrograma, valores } from '@profile/content/identidad';
+import { site } from '@/profile';
 import { Target, Telescope } from 'lucide-react';
 
 export default function MisionVision() {
   return (
     <>
-      {/* ── Misión & Visión ── */}
+      {/* ── Misión & Visión del Programa ── */}
       <div className="bg-gray-50 py-16 md:py-20">
         <div className="container mx-auto px-4 md:px-8">
           <SectionTitle
             title="Misión y **Visión**"
-            subtitle="Los propósitos que guían nuestro camino hacia la excelencia y la sostenibilidad."
+            subtitle={`Los propósitos que guían al ${site.programa.nombre}.`}
             center
           />
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12 max-w-6xl mx-auto">
             <div id="mision" className="scroll-mt-[180px]">
               <MisionCard
                 title="Nuestra Misión"
-                description={mision}
+                description={misionPrograma}
                 icon={<Target className="w-8 h-8 text-gold" />}
               />
             </div>
             <div id="vision" className="scroll-mt-[180px]">
               <MisionCard
                 title="Nuestra Visión"
-                description={vision}
+                description={visionPrograma}
                 icon={<Telescope className="w-8 h-8 text-gold" />}
               />
             </div>
@@ -35,8 +36,31 @@ export default function MisionVision() {
         </div>
       </div>
 
-      {/* ── Valores ── */}
+      {/* ── Misión & Visión institucionales de la UNT ── */}
       <div className="bg-white py-16 md:py-20">
+        <div className="container mx-auto px-4 md:px-8">
+          <SectionTitle
+            title="Misión y Visión de la **UNT**"
+            subtitle="Los propósitos institucionales de la Universidad Nacional de Trujillo, que enmarcan al programa."
+            center
+          />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12 max-w-6xl mx-auto">
+            <MisionCard
+              title="Misión UNT"
+              description={mision}
+              icon={<Target className="w-8 h-8 text-gold" />}
+            />
+            <MisionCard
+              title="Visión UNT"
+              description={vision}
+              icon={<Telescope className="w-8 h-8 text-gold" />}
+            />
+          </div>
+        </div>
+      </div>
+
+      {/* ── Valores ── */}
+      <div className="bg-gray-50 py-16 md:py-20">
         <div className="container mx-auto px-4 md:px-8">
           <SectionTitle
             title="Nuestros **Valores**"

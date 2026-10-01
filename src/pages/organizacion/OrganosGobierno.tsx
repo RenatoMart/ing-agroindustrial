@@ -13,7 +13,7 @@ function MiembroCard({ miembro }: { miembro: { nombre: string; rol: string; carg
     <div className="h-full bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden flex flex-col">
       <div className="relative aspect-[4/5] shrink-0 overflow-hidden rounded-t-2xl border-2 border-primary bg-primary">
         {miembro.foto ? (
-          <img src={miembro.foto} alt={miembro.nombre} loading="lazy" className="w-full h-full object-cover" style={{ objectPosition: 'center 20%' }} />
+          <img src={miembro.foto} alt={miembro.nombre} loading="lazy" className="w-full h-full object-cover" style={{ objectPosition: 'center center' }} />
         ) : (
           <div className="w-full h-full bg-gray-100 flex items-end justify-center">
             <User className="w-1/2 h-auto text-gray-300 -mb-2" />
@@ -35,28 +35,33 @@ function MiembroCard({ miembro }: { miembro: { nombre: string; rol: string; carg
 /**
  * Página agrupada "Órganos de Gobierno". El navbar muestra cada órgano por
  * separado; todos llevan aquí, a su ancla correspondiente. Reúne las instancias
- * de gobierno de la facultad/escuela (Consejo de Facultad y representantes
- * estudiantiles como el Centro Federado). Denominaciones oficiales; pueden
- * variar por facultad.
+ * de gobierno de la facultad/escuela (el Decano, que preside el Consejo de
+ * Facultad, y representantes estudiantiles como el Centro Federado).
  *
  * "Consejeros" se retiró (01-10-2026, a pedido del usuario): no formará parte
- * de esta página.
+ * de esta página. La sección "Consejo de Facultad" se renombró a "Decano"
+ * (01-10-2026, a pedido del usuario), ya que es el único integrante cargado.
  */
 export default function OrganosGobierno() {
   return (
     <>
-      <AnchoredSection id="consejo-facultad">
+      <AnchoredSection id="decano">
         <div className="bg-white py-16 md:py-20">
           <div className="container mx-auto px-4 md:px-8">
             <SectionTitle
-              title="Consejo de **Facultad**"
-              subtitle="Máximo órgano de gobierno de la facultad: aprueba políticas académicas y administrativas. Lo preside el Decano."
+              title="**Decano**"
+              subtitle="Preside el Consejo de Facultad, máximo órgano de gobierno de la Facultad de Ciencias Agropecuarias."
               center
             />
-            {/* PENDIENTE: faltan los demás consejeros (docentes y estudiantiles). */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-5 max-w-6xl mx-auto mt-8">
+            {/* PENDIENTE: faltan los demás consejeros (docentes y estudiantiles).
+                flex + justify-center (no grid): con un solo integrante, un grid
+                de varias columnas lo deja pegado a la izquierda. Así queda
+                centrado tanto con 1 tarjeta como si se agregan más después. */}
+            <div className="flex flex-wrap justify-center gap-5 max-w-6xl mx-auto mt-8">
               {consejoFacultad.map((miembro, i) => (
-                <MiembroCard key={`${miembro.nombre}-${i}`} miembro={miembro} />
+                <div key={`${miembro.nombre}-${i}`} className="w-48 sm:w-56">
+                  <MiembroCard miembro={miembro} />
+                </div>
               ))}
             </div>
           </div>

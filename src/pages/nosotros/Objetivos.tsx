@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
 import AnchoredSection from '../../components/layout/AnchoredSection';
-import EnConstruccion from '../../components/layout/EnConstruccion';
 import CurriculumVersionSwitch from '../../components/academico/CurriculumVersionSwitch';
 import { SectionTitle } from '../../components/ui/SectionTitle';
 import CompetenciaItem from '../../components/academico/CompetenciaItem';
-import { objetivosAcademicos, objetivosEducacionales } from '@profile/content/academico';
+import {
+  objetivosAcademicos,
+  objetivosEducacionales,
+  objetivosAcademicos2027,
+  objetivosEducacionales2027,
+} from '@profile/content/academico';
 
 /**
  * Página agrupada "Objetivos". El navbar muestra "Objetivos educativos" y
@@ -71,7 +75,56 @@ export default function Objetivos() {
           </AnchoredSection>
         </>
       ) : (
-        <EnConstruccion titulo="Objetivos **2027**" descripcion="Los objetivos del plan 2027 estarán disponibles próximamente." />
+        <>
+          <AnchoredSection id="academicos">
+            <div className="bg-white py-16 md:py-20">
+              <div className="container mx-auto px-4 md:px-8">
+                <div className="w-full max-w-4xl mx-auto">
+                  <SectionTitle
+                    title="Objetivos **Académicos**"
+                    center
+                    subtitle="Currículo 2027 (RCU N° 464-2026/UNT). Cada objetivo incluye sus indicadores de seguimiento oficiales."
+                  />
+                  <div className="mt-8 grid gap-4">
+                    {objetivosAcademicos2027.map((obj, idx) => (
+                      <CompetenciaItem
+                        key={obj.codigo}
+                        competencia={{
+                          area: obj.codigo,
+                          descripcion: `${obj.formulacion} Indicadores: ${obj.indicador1} ${obj.indicador2}`,
+                        }}
+                        index={idx}
+                      />
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </AnchoredSection>
+
+          <AnchoredSection id="educativos">
+            <div className="bg-gray-50 py-16 md:py-20">
+              <div className="container mx-auto px-4 md:px-8">
+                <div className="w-full max-w-4xl mx-auto">
+                  <SectionTitle
+                    title="Objetivos **Educacionales**"
+                    center
+                    subtitle="Currículo 2027 (RCU N° 464-2026/UNT). Lo que se espera que el egresado logre en los primeros años de ejercicio profesional."
+                  />
+                  <div className="mt-8 grid gap-4">
+                    {objetivosEducacionales2027.map((obj, idx) => (
+                      <CompetenciaItem
+                        key={obj.codigo}
+                        competencia={{ area: obj.codigo, descripcion: obj.formulacion }}
+                        index={idx}
+                      />
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </AnchoredSection>
+        </>
       )}
     </>
   );

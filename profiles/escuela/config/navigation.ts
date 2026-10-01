@@ -113,7 +113,7 @@ export const NAV_LINKS: NavSection[] = [
             name: 'Órganos de Gobierno',
             path: '/organizacion/organos-gobierno',
             navAs: [
-              { name: 'Consejo de Facultad', path: '/organizacion/organos-gobierno#consejo-facultad' },
+              { name: 'Decano', path: '/organizacion/organos-gobierno#decano' },
               { name: 'Centro Federado', path: '/organizacion/organos-gobierno#representantes' },
             ],
           },

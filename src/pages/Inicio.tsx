@@ -273,11 +273,13 @@ export default function Inicio() {
             </motion.div>
 
             {/* Columna de Video */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
+            >
+            <div
               className="w-full rounded-xl overflow-hidden shadow-2xl relative border-4 border-gray-50"
               style={{ paddingTop: '56.25%' }}
             >
@@ -285,7 +287,7 @@ export default function Inicio() {
                 <iframe
                   className="absolute top-0 left-0 w-full h-full border-0"
                   src={`https://www.youtube-nocookie.com/embed/${site.decana.video.youtubeId}${site.decana.video.start ? `?start=${site.decana.video.start}` : ''}`}
-                  title={`Video Institucional · ${site.programa.nombre}`}
+                  title={site.decana.video.nombre ? `Mensaje de ${site.decana.video.nombre}` : `Video Institucional · ${site.programa.nombre}`}
                   loading="lazy"
                   referrerPolicy="strict-origin-when-cross-origin"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -308,6 +310,13 @@ export default function Inicio() {
                   </div>
                 </div>
               )}
+            </div>
+            {site.decana.video.youtubeId && site.decana.video.nombre && (
+              <p className="mt-3 text-sm text-gray-600 text-center">
+                Mensaje de <span className="font-semibold text-primary">{site.decana.video.nombre}</span>
+                {site.decana.video.cargo && <>, {site.decana.video.cargo}</>}
+              </p>
+            )}
             </motion.div>
 
           </div>

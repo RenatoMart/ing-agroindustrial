@@ -2,7 +2,11 @@ import { useState } from 'react';
 import { SectionTitle } from '../../components/ui/SectionTitle';
 import MallaFlow from '../../components/academico/MallaFlow';
 import CurriculumVersionSwitch from '../../components/academico/CurriculumVersionSwitch';
-import EnConstruccion from '../../components/layout/EnConstruccion';
+import {
+  CURRICULUM_DATA_2027,
+  PREREQUISITES_EDGES_2027,
+  CYCLE_COLUMNS_2027,
+} from '@profile/content/malla2027';
 
 export default function PlanEstudios() {
   const [version, setVersion] = useState('2018');
@@ -23,9 +27,15 @@ export default function PlanEstudios() {
 
         <div className="mt-10">
           {version === '2018' ? (
-            <MallaFlow />
+            <MallaFlow key="2018" />
           ) : (
-            <EnConstruccion titulo="Malla **2027**" descripcion="La malla curricular 2027 estará disponible próximamente." />
+            <MallaFlow
+              key="2027"
+              data={CURRICULUM_DATA_2027}
+              prerequisitesEdges={PREREQUISITES_EDGES_2027}
+              cycleColumns={CYCLE_COLUMNS_2027}
+              planPdfUrl={`${import.meta.env.BASE_URL}Curriculo_Ingenieria_Agroindustrial_2027.pdf`}
+            />
           )}
         </div>
       </div>

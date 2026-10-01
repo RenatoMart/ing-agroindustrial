@@ -28,7 +28,9 @@ export const lineasInvestigacion = [
   },
   {
     nombre: "Alimentos y Bebidas",
-    descripcion: "",
+    // Fuente: Currículo 2027 del programa, que cita la RCU 0220-2022/UNT (líneas
+    // de investigación de la UNT) y señala esta alineación con los ODS.
+    descripcion: "Línea de investigación consolidada de la UNT (RCU N° 0220-2022/UNT), alineada a los Objetivos de Desarrollo Sostenible (ODS) 2 — Hambre Cero—, 3 —Salud y Bienestar— y 12 —Producción y Consumo Responsables.",
     responsable: "Viviano Paulino Ninaquispe Zare, Juan Carlos Solano Gaviño, Carmen Rosa Rojas Padilla, Gabriela del Carmen Barraza Jáuregui, Julio César Rojas Naccha, Karla Margielly Zavaleta Guzmán, Gregorio Mayer Ascón Dionicio"
   },
   {

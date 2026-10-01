@@ -66,9 +66,17 @@ export const site: SiteConfig = {
     // Fuente: saludo institucional del decano, confirmado por el usuario (11-09-2026).
     mensaje:
       'Es un honor, como Decano de la Facultad de Ciencias Agropecuarias de la Universidad Nacional de Trujillo, expresar mi cordial saludo a toda la comunidad del Programa de Ingeniería Agroindustrial, integrada por docentes, estudiantes y egresados comprometidos con la formación, la investigación y el desarrollo de nuestra sociedad. La Ingeniería Agroindustrial cumple un rol estratégico en el desarrollo de nuestra región y del país, al integrar la ciencia, la tecnología y la innovación para transformar nuestros recursos agropecuarios, generar valor agregado y contribuir a un desarrollo sostenible. En este contexto, nuestro Programa tiene el importante desafío de formar profesionales íntegros, críticos, éticos e innovadores, capaces de responder a las necesidades del sector productivo y de generar soluciones frente a los grandes retos de nuestro tiempo, con una visión regional, nacional y global. Desde la Facultad de Ciencias Agropecuarias reafirmamos nuestro compromiso con la excelencia académica, la investigación científica, la innovación y la responsabilidad social y ambiental, convencidos de que estos son pilares fundamentales para formar profesionales capaces de transformar su entorno. A toda la comunidad de Ingeniería Agroindustrial, mi reconocimiento y mis mejores deseos de éxito. Sigamos trabajando juntos para construir una profesión cada vez más innovadora, competitiva y comprometida con el desarrollo sostenible. Formar ingenieros agroindustriales es formar agentes de cambio capaces de convertir nuestros recursos en oportunidades, el conocimiento en innovación y la innovación en desarrollo sostenible.',
-    // ID del video de YouTube para el mensaje de bienvenida. Déjalo vacío hasta
-    // tener el video de tu programa; al ponerlo, el reproductor aparece solo.
-    video: { youtubeId: '', start: 0 },
+    // Video junto al mensaje escrito del decano. Por ahora NO es un video del
+    // decano: es el mensaje del Dr. Juan Carlos Solano Gaviño, Presidente del
+    // Comité de Calidad del programa (confirmado por el usuario, 01-10-2026).
+    // `nombre`/`cargo` identifican a quien aparece en el video; si se
+    // reemplaza por un video del propio decano, basta con quitarlos.
+    video: {
+      youtubeId: '4n88vKsfwik',
+      start: 0,
+      nombre: 'Dr. Juan Carlos Solano Gaviño',
+      cargo: 'Presidente del Comité de Calidad del Programa de Ingeniería Agroindustrial',
+    },
   },
 
   enlaces: {

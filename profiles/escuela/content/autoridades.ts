@@ -20,17 +20,11 @@ export const directorDepartamento = {
   foto: fotoNinaquispe
 };
 
-// Decano y coordinadores del programa, que se muestran junto al Director de
-// Escuela bajo "Coordinaciones".
+// Coordinadores del programa, que se muestran junto al Director de Escuela
+// bajo "Coordinaciones". El Decano se muestra en Organización → Órganos de
+// Gobierno (consejoFacultad), no aquí.
 // PENDIENTE: no se ha proporcionado la relación de coordinadores del programa.
 export const coordinadores = [
-  {
-    nombre: "Dr. Raúl Benito Siche Jara",
-    cargo: "Decano de la Facultad de Ciencias Agropecuarias",
-    // PENDIENTE: falta el correo institucional del Decanato (no inventado).
-    correo: "",
-    foto: fotoSiche
-  },
   {
     nombre: "Nombre del Coordinador(a)",
     cargo: "Coordinador(a) Académico",

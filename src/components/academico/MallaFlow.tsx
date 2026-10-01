@@ -23,6 +23,15 @@ import {
   CYCLE_COLUMNS,
 } from '@profile/content/malla';
 
+interface MallaFlowProps {
+  /** Datos del plan a mostrar. Por defecto, el Plan 2018 (`@profile/content/malla`). */
+  data?: CourseData[];
+  prerequisitesEdges?: Edge[];
+  cycleColumns?: Record<string, number>;
+  /** PDF a ofrecer para descarga. Por defecto, el del Plan 2018. */
+  planPdfUrl?: string;
+}
+
 
 // ── Nodo de curso (colores por área, definidos por el usuario) ───────────────
 // El área se codifica con una franja lateral de color; el fondo es blanco en
@@ -83,7 +92,12 @@ const nodeTypes: NodeTypes = { courseNode: CourseNode };
 
 const PLAN_PDF = `${import.meta.env.BASE_URL}Plan_de_Estudios_2025.pdf`;
 
-export default function MallaFlow() {
+export default function MallaFlow({
+  data = CURRICULUM_DATA,
+  prerequisitesEdges = PREREQUISITES_EDGES,
+  cycleColumns = CYCLE_COLUMNS,
+  planPdfUrl = PLAN_PDF,
+}: MallaFlowProps) {
   const [selectedCourse, setSelectedCourse] = useState<CourseData | null>(null);
   const [isDesktop, setIsDesktop] = useState(false);
   const [showHelp, setShowHelp] = useState(true);
@@ -105,19 +119,19 @@ export default function MallaFlow() {
 
   // Resumen de la malla para el estado por defecto del panel.
   const stats = useMemo(() => ({
-    cycles: new Set(CURRICULUM_DATA.map((c) => c.cycle)).size,
-    courses: CURRICULUM_DATA.length,
-    credits: CURRICULUM_DATA.reduce((sum, c) => sum + c.credits, 0),
-  }), []);
+    cycles: new Set(data.map((c) => c.cycle)).size,
+    courses: data.length,
+    credits: data.reduce((sum, c) => sum + c.credits, 0),
+  }), [data]);
 
   // Orden de ciclos por primera aparición (para la vista de texto accesible).
   const cyclesOrdered = useMemo(() => {
     const seen: string[] = [];
-    CURRICULUM_DATA.forEach((c) => {
+    data.forEach((c) => {
       if (!seen.includes(c.cycle)) seen.push(c.cycle);
     });
     return seen;
-  }, []);
+  }, [data]);
 
   // Cierra el modal de detalle con Escape.
   useEffect(() => {
@@ -136,22 +150,22 @@ export default function MallaFlow() {
   const openCourse = useCallback((course: CourseData) => setSelectedCourse(course), []);
 
   const initialNodes = useMemo<Node<CourseNodeData>[]>(() => {
-    return CURRICULUM_DATA.map((course) => {
-      const sameCycle = CURRICULUM_DATA.filter((c) => c.cycle === course.cycle);
+    return data.map((course) => {
+      const sameCycle = data.filter((c) => c.cycle === course.cycle);
       const orderInCycle = sameCycle.indexOf(course);
       return {
         id: course.id,
         type: 'courseNode',
-        position: { x: CYCLE_COLUMNS[course.cycle] ?? 0, y: orderInCycle * 110 },
+        position: { x: cycleColumns[course.cycle] ?? 0, y: orderInCycle * 110 },
         data: { ...course, onOpen: openCourse },
       };
     });
-  }, [openCourse]);
+  }, [data, cycleColumns, openCourse]);
 
   const initialEdges = useMemo<Edge[]>(() => {
     const reduce = typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    return PREREQUISITES_EDGES.map((e) => ({ ...e, animated: !reduce }));
-  }, []);
+    return prerequisitesEdges.map((e) => ({ ...e, animated: !reduce }));
+  }, [prerequisitesEdges]);
 
   const [nodes, , onNodesChange] = useNodesState(initialNodes);
   const [edges, , onEdgesChange] = useEdgesState(initialEdges);
@@ -194,7 +208,7 @@ export default function MallaFlow() {
       </div>
 
       <a
-        href={PLAN_PDF}
+        href={planPdfUrl}
         target="_blank"
         rel="noopener noreferrer"
         className="inline-flex items-center gap-2 px-4 py-2 bg-slate-950 hover:bg-slate-800 text-white text-xs font-semibold rounded-xl shadow-md transition-colors"
@@ -232,7 +246,7 @@ export default function MallaFlow() {
       </div>
 
       <a
-        href={PLAN_PDF}
+        href={planPdfUrl}
         target="_blank"
         rel="noopener noreferrer"
         className="mt-6 inline-flex items-center gap-2 px-4 py-2 bg-slate-950 hover:bg-slate-800 text-white text-xs font-semibold rounded-xl shadow-md transition-colors"
@@ -264,7 +278,7 @@ export default function MallaFlow() {
         </thead>
         <tbody>
           {cyclesOrdered.map((cycle) =>
-            CURRICULUM_DATA.filter((c) => c.cycle === cycle).map((c) => (
+            data.filter((c) => c.cycle === cycle).map((c) => (
               <tr key={c.id}>
                 <td>{cycle}</td>
                 <td>{c.name}</td>

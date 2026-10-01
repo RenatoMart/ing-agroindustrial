@@ -207,3 +207,127 @@ export const movilidad = [
     modalidad: "Estancia corta",
   },
 ];
+
+// ─────────────────────────────────────────────────────────────────────────
+// Plan 2027 — Currículo del Programa de Estudios de Ingeniería Agroindustrial
+// Fuente: documento oficial del Vicerrectorado Académico UNT (2026), aprobado
+// por Resolución de Consejo de Facultad N° 014-2026-FAC.CC.AGROP. (24-09-2026)
+// y ratificado por Resolución de Consejo Universitario N° 464-2026/UNT
+// (28-09-2026). Se mantienen como exports separados de los del Plan 2018
+// (arriba) para alimentar el selector de versión 2018/2027 ya existente en
+// las páginas de Objetivos y Perfiles.
+// ─────────────────────────────────────────────────────────────────────────
+
+// Objetivos Académicos 2027 (OA1–OA5), con sus dos indicadores oficiales cada
+// uno (la versión 2018 de `objetivosAcademicos` no trae indicadores porque la
+// fuente de esa carga tenía la columna cortada; este documento sí la trae completa).
+export const objetivosAcademicos2027 = [
+  {
+    codigo: "OA1",
+    formulacion: "Gestionar y actualizar sistemáticamente el currículo de Ingeniería Agroindustrial.",
+    indicador1: "Sílabos alineados y validados (=100%).",
+    indicador2: "Acciones de mejora curricular implementadas (≥80%).",
+  },
+  {
+    codigo: "OA2",
+    formulacion: "Asegurar el logro progresivo del perfil de egreso y el éxito académico de los estudiantes.",
+    indicador1: "Estudiantes que alcanzan el nivel esperado del perfil (≥70%).",
+    indicador2: "Estudiantes en riesgo con atención oportuna (≥90%).",
+  },
+  {
+    codigo: "OA3",
+    formulacion: "Incorporar transversalmente la ética, la sostenibilidad y la responsabilidad social universitaria en el proceso formativo.",
+    indicador1: "Asignaturas de especialidad que incorporan ética, sostenibilidad o RSU (=100%).",
+    indicador2: "Beneficiarios satisfechos (≥70%).",
+  },
+  {
+    codigo: "OA4",
+    formulacion: "Fortalecer la vinculación con empresas, egresados, empleadores, instituciones públicas y otros grupos de interés.",
+    indicador1: "Prácticas preprofesionales evaluadas (=100%).",
+    indicador2: "Empleadores satisfechos con el desempeño de los egresados (≥70%).",
+  },
+  {
+    codigo: "OA5",
+    formulacion: "Consolidar una gestión académica basada en información, autoevaluación, gestión de riesgos y mejora continua.",
+    indicador1: "Cumplimiento del Plan de Mejora (≥80%).",
+    indicador2: "Cumplimiento del Plan Operativo (≥95%).",
+  },
+];
+
+// Objetivos Educacionales 2027 (OE1–OE4). El texto coincide con el ya cargado
+// en `objetivosEducacionales` (ambos provienen de la misma propuesta oficial);
+// se duplica aquí para que la pestaña 2027 tenga su propia fuente de datos.
+export const objetivosEducacionales2027 = [
+  { codigo: "OE1", formulacion: "Desarrolla procesos, productos o servicios agroindustriales con sostenibilidad y responsabilidad social." },
+  { codigo: "OE2", formulacion: "Gestiona procesos y sistemas productivos en organizaciones agroindustriales." },
+  { codigo: "OE3", formulacion: "Ejerce la profesión con ética, comunicación efectiva, trabajo en equipo y aprendizaje continuo." },
+  { codigo: "OE4", formulacion: "Participa o lidera proyectos de investigación e innovación en el ámbito agroindustrial." },
+];
+
+// Perfil de Ingreso 2027: perfil institucional (CI-1 a CI-7, común a toda la
+// UNT) + perfil específico del programa (pesos del examen de admisión).
+export const perfilIngresante2027 = [
+  { area: "CI-1 · Autogestión personal básica", descripcion: "Gestiona su comportamiento y emociones de manera equilibrada, manteniendo condiciones básicas de salud física y mental, que le permiten cumplir responsabilidades académicas iniciales y relacionarse adecuadamente en el entorno universitario." },
+  { area: "CI-2 · Competencia digital básica", descripcion: "Utiliza herramientas elementales de las tecnologías de la información y la comunicación para acceder, organizar y comunicar información académica, conforme a las exigencias iniciales del estudio universitario." },
+  { area: "CI-3 · Base cultural y científica inicial", descripcion: "Aplica conocimientos culturales y científicos fundamentales para comprender contenidos introductorios de las áreas del conocimiento y desenvolverse en el proceso formativo universitario." },
+  { area: "CI-4 · Razonamiento lógico matemático básico", descripcion: "Emplea el razonamiento lógico y matemático en la comprensión y resolución de problemas simples, utilizando procedimientos básicos de manera pertinente." },
+  { area: "CI-5 · Convivencia y responsabilidad ciudadana", descripcion: "Actúa respetando normas de convivencia, principios ciudadanos y criterios básicos de cuidado del ambiente, en su interacción con la comunidad universitaria." },
+  { area: "CI-6 · Comprensión lectora funcional", descripcion: "Comprende, analiza e interpreta instrucciones, consignas y textos académicos de nivel básico, considerando el contexto y el propósito comunicativo." },
+  { area: "CI-7 · Respeto a la diversidad sociocultural", descripcion: "Interactúa con respeto y apertura frente a personas de diversas culturas, reconociendo la diversidad sociocultural como un valor para la convivencia universitaria." },
+  { area: "Matemática (30% del examen de admisión)", descripcion: "Resuelve problemas aplicando razonamiento lógico y las bases matemáticas —aritmética, álgebra y geometría— requeridas." },
+  { area: "Ciencia y Tecnología (30% del examen de admisión)", descripcion: "Explica fenómenos naturales utilizando nociones de biología, física y química, demostrando interés por el ámbito agroindustrial." },
+  { area: "Comunicación (15% del examen de admisión)", descripcion: "Lee y se expresa con claridad oral y escrita en español, identificando intenciones, generando inferencias y valorando la validez de la información." },
+  { area: "Historia (10%) / Ciudadanía y Cívica (5% del examen de admisión)", descripcion: "Argumenta posiciones éticas y ciudadanas, valorando su identidad y el patrimonio histórico, con responsabilidad por el bien común." },
+  { area: "Inglés (5% del examen de admisión)", descripcion: "Comprende y produce mensajes básicos en inglés como herramienta de acceso a información técnica." },
+];
+
+// Perfil de Egreso 2027: 4 competencias generales + 2 específicas + 3 de
+// especialidad, cada una con sus 3 niveles de progresión (básico, intermedio,
+// avanzado) y el desempeño esperado oficial de cada nivel.
+export const perfilEgresado2027 = [
+  {
+    area: "CG01 · Aprendizaje permanente (Competencia General)",
+    descripcion: "Gestiona de manera autónoma y crítica procesos de aprendizaje complejos, anticipando necesidades futuras, integrando diversos saberes y aplicándolos para generar soluciones innovadoras y efectivas en contextos académicos, profesionales y sociales. Básico: identifica sus necesidades de aprendizaje utilizando diversas fuentes con rigor científico y académico. Intermedio: aplica estrategias para mejorar sus procesos de aprendizaje permanente, con actitud crítica y reflexiva. Avanzado: gestiona de manera autónoma procesos de formación especializada, anticipándose a cambios disruptivos y sintetizando evidencia científica para generar soluciones innovadoras.",
+  },
+  {
+    area: "CG02 · Pensamiento crítico (Competencia General)",
+    descripcion: "Evalúa información, ideas y argumentos para realizar juicios fundamentados, valorar y juzgar la solidez de las afirmaciones y conclusiones, tomando postura y fundamentando sus decisiones. Básico: comprende y describe información básica, garantizando su validez para formular conclusiones fundamentadas en evidencias. Intermedio: analiza información científica valorando su validez, confiabilidad y pertinencia para seleccionar alternativas fundamentadas. Avanzado: evalúa críticamente argumentos sobre el impacto de la ciencia y tecnología, integrando criterios éticos, regulatorios y de sostenibilidad para la toma de decisiones responsables.",
+  },
+  {
+    area: "CG03 · Resolución de problemas (Competencia General)",
+    descripcion: "Resuelve problemas complejos en contextos académicos, profesionales y sociales, aplicando conocimientos, herramientas y metodologías pertinentes, con criterios éticos, culturales y contextuales. Básico: comprende los principios fundamentales para el diseño de soluciones innovadoras, aplicando algoritmos, fórmulas o protocolos. Intermedio: analiza soluciones mediante metodologías y herramientas especializadas, considerando requisitos técnicos, económicos, ambientales y normativos. Avanzado: desarrolla soluciones integrales para problemas complejos con visión interdisciplinaria, integrando restricciones técnicas, económicas, sociales y ambientales.",
+  },
+  {
+    area: "CG04 · Comunicación efectiva (Competencia General)",
+    descripcion: "Comunica códigos verbales y no verbales, en español y una lengua extranjera, en forma oral y escrita, utilizando herramientas digitales pertinentes, adaptándose a la situación, audiencia y exigencias comunicativas interculturales. Básico: expresa códigos verbales y no verbales de manera efectiva usando herramientas digitales pertinentes. Intermedio: estructura textos técnicos y científicos con lenguaje riguroso propio de su especialidad. Avanzado: argumenta información compleja mediante estrategias adaptables a diferentes audiencias, integrando evidencia técnica, experimental y normativa.",
+  },
+  {
+    area: "CE01 · Gestión por procesos (Competencia Específica)",
+    descripcion: "Diseña e implementa procesos operativos, productivos y de gestión de información mediante herramientas cuantitativas y técnicas de control estadístico de la calidad, para incrementar la eficiencia organizacional y promover la mejora continua bajo estándares normativos vigentes. Básico: identifica y describe los elementos clave, variables, etapas e interacciones de los procesos. Intermedio: analiza procesos mediante indicadores, técnicas de modelamiento y herramientas estadísticas de control. Avanzado: diseña e implementa procesos integrando conocimientos especializados y criterios de salud, seguridad y sostenibilidad.",
+  },
+  {
+    area: "CE02 · Gestión de proyectos (Competencia Específica)",
+    descripcion: "Evalúa proyectos y soluciones tecnológicas integrando principios de gestión en ingeniería y análisis económico-financiero para optimizar recursos, evaluar riesgos y sustentar decisiones estratégicas orientadas a la sostenibilidad y generación de valor. Básico: reconoce los conceptos fundamentales de costos, presupuestos e indicadores económicos. Intermedio: aplica herramientas de gestión de proyectos y evaluación económico-financiera para estimar costos, beneficios y riesgos. Avanzado: evalúa proyectos en entornos multidisciplinarios integrando gestión en ingeniería, análisis económico-financiero y evaluación de riesgos.",
+  },
+  {
+    area: "CES1 · Diseña y desarrolla productos y tecnologías agroindustriales (Especialidad)",
+    descripcion: "Diseña, desarrolla y optimiza productos, procesos y tecnologías agroindustriales mediante la aplicación de conocimientos de ingeniería, ciencia de los alimentos, biotecnología e investigación aplicada, para agregar valor a los recursos agropecuarios. Básico: caracteriza materias primas y productos agroindustriales aplicando conocimientos de ciencias básicas y tecnología. Intermedio: diseña y desarrolla productos y procesos mediante métodos experimentales y análisis de datos. Avanzado: optimiza productos, procesos y tecnologías mediante investigación aplicada, integrando restricciones técnicas, económicas, sociales y ambientales.",
+  },
+  {
+    area: "CES2 · Gestiona agronegocios y cadenas agroalimentarias (Especialidad)",
+    descripcion: "Diseña y evalúa estrategias para la gestión y articulación de agronegocios y cadenas agroalimentarias, integrando criterios técnicos, comerciales, logísticos y de mercado, para fortalecer la competitividad y la inserción sostenible en entornos nacionales e internacionales. Básico: identifica la estructura y funcionamiento de los agronegocios y cadenas agroalimentarias. Intermedio: analiza estrategias de gestión comercial, logística y articulación de cadenas utilizando herramientas de análisis de mercado y TIC. Avanzado: diseña y evalúa estrategias evaluando oportunidades de mercado, riesgos y sostenibilidad en entornos nacionales e internacionales.",
+  },
+  {
+    area: "CES3 · Gestiona la calidad, inocuidad y sostenibilidad agroindustrial (Especialidad)",
+    descripcion: "Diseña y evalúa sistemas de calidad, inocuidad y estrategias de sostenibilidad en organizaciones agroindustriales, aplicando normas técnicas, requisitos regulatorios y herramientas de control y mejora continua, para garantizar la conformidad del producto y la seguridad alimentaria. Básico: identifica los principios de calidad, inocuidad y sostenibilidad de acuerdo con la normativa vigente. Intermedio: diseña sistemas de calidad e inocuidad aplicando normas técnicas y herramientas de control y mejora continua. Avanzado: evalúa sistemas de gestión de calidad, inocuidad y sostenibilidad en cadenas agroalimentarias, proponiendo estrategias de mejora continua.",
+  },
+];
+
+// Prácticas preprofesionales 2027: requisito explícito del nuevo currículo
+// (antes no estaba cuantificado en el perfil 2018 cargado).
+export const practicasPreprofesionales2027 = {
+  horasMinimas: 256,
+  modalidad: "Extracurricular",
+  desde: "Octavo ciclo",
+  requisitoPara: "Matricularse en Seminario de desarrollo profesional (X ciclo) y para la obtención del grado de Bachiller.",
+};

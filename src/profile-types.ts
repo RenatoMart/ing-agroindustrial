@@ -42,7 +42,10 @@ export interface DecanaConfig {
   nombre: string;
   cargo: string;
   mensaje: string;
-  video: { youtubeId: string; start?: number };
+  // `nombre`/`cargo` opcionales: identifican a quien aparece en el video,
+  // cuando no es la misma persona que firma `mensaje` (p. ej. un mensaje en
+  // video de otra autoridad mientras no se tenga el del propio decano/a).
+  video: { youtubeId: string; start?: number; nombre?: string; cargo?: string };
 }
 
 export interface SiteConfig {
