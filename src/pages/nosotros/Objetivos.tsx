@@ -41,7 +41,7 @@ export default function Objetivos() {
                     {objetivosAcademicos.map((texto, idx) => (
                       <CompetenciaItem
                         key={idx}
-                        competencia={{ area: `Objetivo académico ${idx + 1}`, descripcion: texto }}
+                        competencia={{ area: `OA${idx + 1}`, descripcion: texto }}
                         index={idx}
                       />
                     ))}

@@ -7,6 +7,7 @@ import { Card } from '../components/ui/Card';
 import { GraduationCap, ArrowRight, Calendar, ShieldCheck, User, Play, Newspaper } from 'lucide-react';
 import { site, branding } from '@/profile';
 import { noticias } from '@profile/content/noticias';
+import NoticiaLink from '../components/ui/NoticiaLink';
 import { accesosRapidos, ambientes } from '@profile/content/home';
 import useHeaderHeight from '../hooks/useHeaderHeight';
 
@@ -356,18 +357,25 @@ export default function Inicio() {
                 transition={{ delay: idx * 0.1 }}
                 whileHover={{ y: -4 }}
               >
-                <Link to={noticia.link} className="block h-full group">
+                <NoticiaLink to={noticia.link} className="block h-full group">
                   <Card className="h-full flex flex-col p-0 overflow-hidden hover:shadow-lg transition-shadow">
                     {/* Franja superior de color por categoría */}
                     <div className="h-1.5 bg-primary w-full" />
                     {/* Imagen de la noticia */}
                     <div className="h-48 w-full overflow-hidden shrink-0">
-                      <img
-                        src={noticia.imagen}
-                        alt={noticia.titulo}
-                        loading="lazy"
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                      />
+                      {noticia.imagen ? (
+                        <img
+                          src={noticia.imagen}
+                          alt={noticia.titulo}
+                          loading="lazy"
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        />
+                      ) : (
+                        <div className="w-full h-full bg-primary relative flex items-center justify-center">
+                          <div className="absolute inset-0 opacity-[0.07]" style={{ backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)', backgroundSize: '16px 16px' }} />
+                          <Newspaper className="w-12 h-12 text-gold relative" aria-hidden="true" />
+                        </div>
+                      )}
                     </div>
                     <div className="p-6 flex flex-col flex-1">
                       <div className="flex items-center gap-2 mb-3">
@@ -390,7 +398,7 @@ export default function Inicio() {
                       </span>
                     </div>
                   </Card>
-                </Link>
+                </NoticiaLink>
               </motion.div>
             ))}
           </div>
