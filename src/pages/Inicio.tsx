@@ -458,8 +458,8 @@ export default function Inicio() {
             center
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
-            
+          <div className={`grid grid-cols-1 gap-8 mt-12 ${ambientes.length > 1 ? 'md:grid-cols-2' : 'max-w-4xl mx-auto'}`}>
+
             {ambientes.map((amb, idx) => (
               <motion.div
                 key={amb.titulo}
@@ -479,6 +479,13 @@ export default function Inicio() {
                   <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/80 to-transparent" />
                   <div className="absolute inset-0 bg-primary/25" />
                 </div>
+                {amb.link && (
+                  <Link
+                    to={amb.link}
+                    aria-label={`Ver ${amb.titulo}`}
+                    className="absolute inset-0 z-20 focus:outline-none focus-visible:ring-4 focus-visible:ring-gold focus-visible:ring-inset rounded-3xl"
+                  />
+                )}
                 <div className="relative z-10 p-8 md:p-10 w-full transform group-hover:-translate-y-2 transition-transform duration-500">
                   <span className="inline-block px-3.5 py-1.5 bg-gold text-primary text-[10px] font-black tracking-widest uppercase rounded-md mb-4 shadow-lg">
                     {amb.badge}
@@ -490,6 +497,11 @@ export default function Inicio() {
                   <p className="text-white/80 text-sm md:text-base leading-relaxed max-w-lg">
                     {amb.descripcion}
                   </p>
+                  {amb.link && (
+                    <span className="mt-5 inline-flex items-center gap-2 text-gold text-sm font-bold group-hover:gap-3 transition-[gap]">
+                      Conocer los laboratorios <ArrowRight className="w-4 h-4" />
+                    </span>
+                  )}
                 </div>
               </motion.div>
             ))}

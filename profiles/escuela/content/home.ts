@@ -1,3 +1,4 @@
+import { laboratorios, laboratoriosPortada } from './laboratorios';
 import { BookOpen, Users, FlaskConical, GraduationCap, Handshake, UserCheck } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 
@@ -25,23 +26,18 @@ export interface Ambiente {
   descripcion: string;
   imagen: string;
   alt: string;
+  /** Si existe, la tarjeta completa lleva a esta ruta interna. */
+  link?: string;
 }
 
 export const ambientes: Ambiente[] = [
   {
     badge: 'Ambiente',
-    titulo: 'Nombre del Ambiente 1',
+    titulo: 'Laboratorios',
     descripcion:
-      'Descripción breve del primer ambiente o laboratorio: con qué cuenta y para qué se usa en la formación. Reemplaza este texto por el de tu programa.',
-    imagen: 'https://picsum.photos/seed/ambiente-1/800/600',
-    alt: 'Nombre del Ambiente 1',
-  },
-  {
-    badge: 'Ambiente',
-    titulo: 'Nombre del Ambiente 2',
-    descripcion:
-      'Descripción breve del segundo ambiente o laboratorio: con qué cuenta y para qué se usa en la formación. Reemplaza este texto por el de tu programa.',
-    imagen: 'https://picsum.photos/seed/ambiente-3/800/600',
-    alt: 'Nombre del Ambiente 2',
+      `La escuela cuenta con ${laboratorios.filter((l) => l.tipo === 'Laboratorio').length} laboratorios y ${laboratorios.filter((l) => l.tipo === 'Taller').length} taller para las prácticas de análisis, procesos, microbiología y cómputo de la carrera.`,
+    imagen: laboratoriosPortada.src,
+    alt: laboratoriosPortada.alt,
+    link: '/academico/laboratorios',
   },
 ];

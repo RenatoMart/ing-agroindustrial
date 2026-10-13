@@ -1,22 +1,37 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { FlaskConical, Utensils } from 'lucide-react';
 import { SectionTitle } from '../../components/ui/SectionTitle';
-import { laboratorios, laboratoriosPortada } from '@profile/content/laboratorios';
+import { laboratorios, laboratoriosFotos, laboratoriosPortada } from '@profile/content/laboratorios';
 
 export default function Laboratorios() {
   const totalLabs = laboratorios.filter((l) => l.tipo === 'Laboratorio').length;
   const totalTalleres = laboratorios.length - totalLabs;
+  const [foto, setFoto] = useState(0);
+
+  useEffect(() => {
+    if (laboratoriosFotos.length < 2) return;
+    // Sin auto-rotación si el sistema pide reducir movimiento.
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const id = setInterval(() => setFoto((i) => (i + 1) % laboratoriosFotos.length), 4000);
+    return () => clearInterval(id);
+  }, []);
 
   return (
     <>
       {/* Portada: la foto manda; el texto se apoya en un degradado azul institucional */}
       <section className="relative isolate overflow-hidden bg-primary">
-        <img
-          src={laboratoriosPortada.src}
-          alt={laboratoriosPortada.alt}
-          className="absolute inset-0 -z-10 h-full w-full object-cover object-[50%_35%]"
-        />
+        {laboratoriosFotos.map((f, i) => (
+          <img
+            key={f.src}
+            src={f.src}
+            alt={f.alt}
+            aria-hidden={i !== foto}
+            loading={i === 0 ? 'eager' : 'lazy'}
+            className={`absolute inset-0 -z-10 h-full w-full object-cover transition-opacity duration-1000 ${i === foto ? 'opacity-100' : 'opacity-0'}`}
+            style={{ objectPosition: f.position }}
+          />
+        ))}
         <div className="absolute inset-0 -z-10 bg-gradient-to-r from-primary via-primary/85 to-primary/10 md:to-transparent" />
         <div className="container mx-auto px-4 md:px-8 py-20 md:py-36 lg:py-44">
           <motion.div
@@ -35,7 +50,23 @@ export default function Laboratorios() {
             </p>
           </motion.div>
         </div>
-        <p className="absolute bottom-3 right-4 text-[11px] text-white/70">{laboratoriosPortada.pie}</p>
+        <p className="absolute bottom-3 right-4 text-[11px] text-white/70 hidden sm:block">{laboratoriosPortada.pie}</p>
+        {laboratoriosFotos.length > 1 && (
+          <div className="absolute bottom-3 left-4 md:left-8 flex gap-2" role="group" aria-label="Fotos de los laboratorios">
+            {laboratoriosFotos.map((f, i) => (
+              <button
+                key={f.src}
+                type="button"
+                onClick={() => setFoto(i)}
+                aria-label={`Ver foto ${i + 1} de ${laboratoriosFotos.length}`}
+                aria-pressed={i === foto}
+                className="h-11 w-8 flex items-center justify-center focus:outline-none group"
+              >
+                <span className={`h-1.5 rounded-full transition-all ${i === foto ? 'w-8 bg-gold' : 'w-4 bg-white/60 group-hover:bg-white'}`} />
+              </button>
+            ))}
+          </div>
+        )}
       </section>
 
       <div className="bg-white py-16 md:py-20">
