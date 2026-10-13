@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import PageWrapper from '../components/layout/PageWrapper';
 import { SectionTitle } from '../components/ui/SectionTitle';
 import { Card } from '../components/ui/Card';
-import { GraduationCap, ArrowRight, Calendar, ShieldCheck, User, Play } from 'lucide-react';
+import { GraduationCap, ArrowRight, Calendar, ShieldCheck, User, Play, Newspaper } from 'lucide-react';
 import { site, branding } from '@/profile';
 import { noticias } from '@profile/content/noticias';
 import { accesosRapidos, ambientes } from '@profile/content/home';
@@ -327,14 +327,25 @@ export default function Inicio() {
         <div className="container mx-auto px-4 md:px-8">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-4">
             <SectionTitle title="Noticias y **Actualidad**" subtitle={`Últimas novedades, eventos y comunicados del ${site.denominacion}.`} />
-            <Link
+            {noticias.length > 0 && <Link
               to="/noticias"
               className="inline-flex items-center gap-2 text-sm font-bold text-primary hover:text-gold transition-colors whitespace-nowrap shrink-0"
             >
               Ver todas <ArrowRight className="w-4 h-4" />
-            </Link>
+            </Link>}
           </div>
 
+          {noticias.length === 0 ? (
+            <div className="flex flex-col items-center text-center max-w-md mx-auto py-12">
+              <div className="w-14 h-14 rounded-2xl bg-gold/15 border border-gold/30 flex items-center justify-center mb-4">
+                <Newspaper className="w-7 h-7 text-gold" aria-hidden="true" />
+              </div>
+              <h3 className="font-display font-bold text-primary text-lg">No hay noticias por el momento</h3>
+              <p className="text-gray-500 text-sm mt-2 leading-relaxed">
+                Cuando haya nuevos eventos, convocatorias o comunicados del programa, los publicaremos aquí.
+              </p>
+            </div>
+          ) : (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-7">
             {noticias.map((noticia, idx) => (
               <motion.div
@@ -383,6 +394,7 @@ export default function Inicio() {
               </motion.div>
             ))}
           </div>
+          )}
         </div>
       </section>
 

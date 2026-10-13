@@ -20,6 +20,17 @@ export default function Noticias() {
 
       <section className="py-16 md:py-20 bg-gray-50">
         <div className="container mx-auto px-4 md:px-8">
+          {noticias.length === 0 ? (
+            <div className="flex flex-col items-center text-center max-w-md mx-auto py-12">
+              <div className="w-14 h-14 rounded-2xl bg-gold/15 border border-gold/30 flex items-center justify-center mb-4">
+                <Newspaper className="w-7 h-7 text-gold" aria-hidden="true" />
+              </div>
+              <h3 className="font-display font-bold text-primary text-lg">No hay noticias por el momento</h3>
+              <p className="text-gray-500 text-sm mt-2 leading-relaxed">
+                Cuando haya nuevos eventos, convocatorias o comunicados del programa, los publicaremos aquí.
+              </p>
+            </div>
+          ) : (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-7">
             {noticias.map((noticia, idx) => (
               <motion.div
@@ -68,6 +79,7 @@ export default function Noticias() {
               </motion.div>
             ))}
           </div>
+          )}
         </div>
       </section>
     </PageWrapper>

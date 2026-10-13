@@ -27,7 +27,7 @@ export default function Laboratorios() {
           >
             <div className="w-10 h-0.5 bg-gold rounded-full mb-4" />
             <h2 className="font-display font-black text-white text-3xl md:text-5xl leading-tight">
-              Aprender haciendo, <span className="text-gold">en el laboratorio</span>
+              Labora<span className="text-gold">torios</span>
             </h2>
             <p className="mt-4 text-white/85 text-base md:text-lg leading-relaxed">
               La escuela cuenta con {totalLabs} laboratorios y {totalTalleres} taller para las prácticas de análisis,
